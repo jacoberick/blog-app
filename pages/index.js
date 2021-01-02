@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import Head from "next/head";
 import fire from "../config/fire-conf";
-import CreatePost from "../components/CreatePost";
 import Link from "next/link";
+import Head from "next/head";
+import Header from "../components/Header";
+import Home from "../components/Home";
+import Footer from "../components/Footer";
 
-const Home = () => {
+const Index = () => {
   const [articles, setArticles] = useState([]);
   const [notification, setNotification] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -42,38 +44,29 @@ const Home = () => {
       });
   };
 
+  const hoverHighlight = "hover:text-red transition duration-200";
+
   return (
-    <div>
+    <div className="font-body h-screen">
       <Head>
         <title>Gulag Anthem</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <h1>Gulag Anthem</h1>
-      {notification}
-      {!loggedIn ? (
-        <div>
-          <Link href="/users/register">
-            <a>Register</a>
-          </Link>{" "}
-          |
-          <Link href="/users/login">
-            <a> Login</a>
-          </Link>
-        </div>
-      ) : (
-        <button onClick={handleLogout}>Logout</button>
-      )}
-      <ul>
-        {articles.map((a) => (
-          <li key={a.id}>
-            <Link href="/articles/[id]" as={"/articles/" + a.id}>
-              <a>{a.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      {loggedIn && <CreatePost />}
+      <Header
+        notification={notification}
+        loggedIn={loggedIn}
+        articles={articles}
+        handleLogout={handleLogout}
+        hoverHighlight={hoverHighlight}
+      />
+      <Home />
+      <Footer hoverHighlight={hoverHighlight} />
     </div>
   );
 };
 
-export default Home;
+export default Index;

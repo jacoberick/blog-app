@@ -23,6 +23,7 @@ const CreatePost = () => {
           Title
           <br />
           <input
+            className="border-2"
             type="text"
             value={title}
             onChange={({ target }) => setTitle(target.value)}
@@ -32,6 +33,7 @@ const CreatePost = () => {
           Content
           <br />
           <textarea
+            className="border-2"
             value={content}
             onChange={({ target }) => setContent(target.value)}
           />
