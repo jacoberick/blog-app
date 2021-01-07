@@ -13,6 +13,7 @@ const Article = (props) => {
     </div>
   );
 };
+
 export const getServerSideProps = async ({ query }) => {
   const content = {};
   await fire
@@ -24,6 +25,7 @@ export const getServerSideProps = async ({ query }) => {
       content["title"] = result.data().title;
       content["content"] = result.data().content;
     });
+
   return {
     props: {
       title: content.title,

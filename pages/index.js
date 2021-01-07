@@ -19,6 +19,7 @@ const Index = () => {
     }
   });
 
+  //get and store articles
   useEffect(() => {
     fire
       .firestore()
