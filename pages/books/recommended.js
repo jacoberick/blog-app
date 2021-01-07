@@ -19,10 +19,10 @@ const Recommended = () => {
   }, []);
   return (
     <div id="recommendedDiv">
-      <div id="recommendedDiv">
+      <div id="recommendedInner" className={`flex justify-center p-6`}>
         {recBooks.map((b) => (
-          <div id="bookContainer">
-            <p>{b.title}</p>
+          <div key={b.id} id="bookContainer" className={`ml-10`}>
+            <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28`} />
           </div>
         ))}
       </div>
