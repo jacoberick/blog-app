@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import fire from "../../config/fire-conf";
+import Head from "next/head";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const Recommended = () => {
   const [recBooks, setRecBooks] = useState([]);
@@ -18,14 +21,24 @@ const Recommended = () => {
       });
   }, []);
   return (
-    <div id="recommendedDiv">
-      <div id="recommendedInner" className={`flex justify-center p-6`}>
+    <div id="recommendedDiv" className="bg-background h-screen">
+      <Head>
+        <title>Gulag Anthem | Recommended Books</title>
+        />
+      </Head>
+      <Header />
+      <div id="recommendedInner" className={`flex justify-center flex-wrap max-w-4xl my-3 mx-auto mb-28`}>
         {recBooks.map((b) => (
-          <div key={b.id} id="bookContainer" className={`ml-10`}>
-            <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28`} />
+          <div
+            key={b.id}
+            id="bookContainer"
+            className={`m-6 h-60 w-40 shadow-md flex justify-center items-center rounded-md`}
+          >
+            <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 };

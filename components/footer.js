@@ -1,10 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTwitter,
-  faInstagram,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = ({ hoverHighlight }) => {
   return (
@@ -19,35 +15,19 @@ const Footer = ({ hoverHighlight }) => {
               placeholder="E-mail"
             />
             <button className="focus:outline-none">
-              <p
-                className={`border-2 p-1 rounded ${hoverHighlight} h-8 flex items-center`}
-              >
-                Subscribe
-              </p>
+              <p className={`border-2 p-1 rounded ${hoverHighlight} h-8 flex items-center`}>Subscribe</p>
             </button>
           </div>
         </div>
         <div id="socialLinks" className="flex">
-          <a
-            href="http://twitter.com/gulaganthem"
-            target="_blank"
-            className={`ml-16 p-2 ${hoverHighlight}`}
-          >
-            <FontAwesomeIcon icon={faTwitter} className="h-8 w-8" />
+          <a href="http://twitter.com/gulaganthem" target="_blank" className={`ml-16 p-2 ${hoverHighlight}`}>
+            <FontAwesomeIcon icon={faTwitter} className="text-2xl" />
           </a>
-          <a
-            href="http://instagram.com/gulaganthem"
-            target="_blank"
-            className={`ml-16 p-2 ${hoverHighlight}`}
-          >
-            <FontAwesomeIcon icon={faInstagram} className="h-8 w-8" />
+          <a href="http://instagram.com/gulaganthem" target="_blank" className={`ml-16 p-2 ${hoverHighlight}`}>
+            <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
           </a>
-          <a
-            href="http://youtube.com/gulaganthem"
-            target="_blank"
-            className={`ml-16 p-2 ${hoverHighlight}`}
-          >
-            <FontAwesomeIcon icon={faYoutube} className="h-8 w-8" />
+          <a href="http://youtube.com/gulaganthem" target="_blank" className={`ml-16 p-2 ${hoverHighlight}`}>
+            <FontAwesomeIcon icon={faYoutube} className="text-2xl" />
           </a>
         </div>
       </footer>

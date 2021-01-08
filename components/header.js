@@ -16,9 +16,11 @@ const HandleMouseOver = () => {};
 
 const Header = ({ notification, loggedIn, articles, handleLogout, hoverHighlight }) => {
   return (
-    <div id="header" className="text-base text-white bg-jet">
+    <div id="header" className="text-base font-body text-white bg-jet">
       <div id="headerInner " className="py-4 px-24 flex justify-between content-center">
-        <h1 className="font-header text-3xl">Gulag Anthem</h1>
+        <Link href="/">
+          <h1 className="font-header text-3xl cursor-pointer">Gulag Anthem</h1>
+        </Link>
         <div id="navLinks" className="flex items-center">
           <Link href="/" passHref>
             <a className={`ml-8 ${hoverHighlight}`}>Articles</a>

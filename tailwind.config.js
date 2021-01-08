@@ -14,6 +14,8 @@ module.exports = {
       black: "#121212",
       red: "#A40606",
       background: "#e0e5ec",
+      highlight: "#fefefe",
+      shadow: "#c0cad7",
     },
   },
   variants: {

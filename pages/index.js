@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import fire from "../config/fire-conf";
 import Link from "next/link";
 import Head from "next/head";
-import Header from "../components/Header";
-import Home from "../components/Home";
-import Footer from "../components/Footer";
+import Header from "../components/header";
+import Home from "../components/home";
+import Footer from "../components/footer";
 
 const Index = () => {
   const [articles, setArticles] = useState([]);
@@ -48,14 +48,9 @@ const Index = () => {
   const hoverHighlight = "hover:text-red transition duration-200";
 
   return (
-    <div className="font-body h-screen">
+    <div id="indexContainer" className="h-screen">
       <Head>
-        <title>Gulag Anthem</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Open+Sans&display=swap"
-          rel="stylesheet"
-        />
+        <title>Gulag Anthem | Home</title>
       </Head>
       <Header
         notification={notification}
