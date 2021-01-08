@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import fire from "../../config/fire-conf";
+import Link from "next/link";
 import Head from "next/head";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -32,9 +33,11 @@ const Recommended = () => {
           <div
             key={b.id}
             id="bookContainer"
-            className={`m-6 h-60 w-40 shadow-md flex justify-center items-center rounded-md`}
+            className={`m-6 h-60 w-40 shadow-md flex justify-center items-center rounded-md cursor-pointer shadow-nuemorphic`}
           >
-            <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />
+            <Link href={`/`} className="">
+              <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />
+            </Link>
           </div>
         ))}
       </div>

@@ -12,9 +12,11 @@ const bookDropDownMenu = (
   </div>
 );
 
+const hoverHighlight = "hover:text-red transition duration-200";
+
 const HandleMouseOver = () => {};
 
-const Header = ({ notification, loggedIn, articles, handleLogout, hoverHighlight }) => {
+const Header = ({ notification, loggedIn, articles, handleLogout }) => {
   return (
     <div id="header" className="text-base font-body text-white bg-jet">
       <div id="headerInner " className="py-4 px-24 flex justify-between content-center">

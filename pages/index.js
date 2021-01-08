@@ -45,22 +45,16 @@ const Index = () => {
       });
   };
 
-  const hoverHighlight = "hover:text-red transition duration-200";
+  // const hoverHighlight = "hover:text-red transition duration-200";
 
   return (
     <div id="indexContainer" className="h-screen">
       <Head>
         <title>Gulag Anthem | Home</title>
       </Head>
-      <Header
-        notification={notification}
-        loggedIn={loggedIn}
-        articles={articles}
-        handleLogout={handleLogout}
-        hoverHighlight={hoverHighlight}
-      />
+      <Header notification={notification} loggedIn={loggedIn} articles={articles} handleLogout={handleLogout} />
       <Home />
-      <Footer hoverHighlight={hoverHighlight} />
+      <Footer />
     </div>
   );
 };

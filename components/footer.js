@@ -2,7 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-const Footer = ({ hoverHighlight }) => {
+const hoverHighlight = "hover:text-red transition duration-200";
+
+const Footer = ({}) => {
   return (
     <div className="h-1/6 bg-jet flex text-white px-24">
       <footer className="flex justify-between w-full items-center">

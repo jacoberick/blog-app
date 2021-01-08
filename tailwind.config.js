@@ -17,6 +17,9 @@ module.exports = {
       highlight: "#fefefe",
       shadow: "#c0cad7",
     },
+    boxShadow: {
+      nuemorphic: "-7px -7px 10px #fefefe, 7px 7px 10px #c0cad7",
+    },
   },
   variants: {
     extend: {},
