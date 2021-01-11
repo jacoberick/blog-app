@@ -28,7 +28,7 @@ const Header = ({ notification, loggedIn, articles, handleLogout }) => {
             <a className={`ml-8 ${hoverHighlight}`}>Articles</a>
           </Link>
           <div id="booksContainer" className={`flex items-center ml-8 ${hoverHighlight}`}>
-            <Link href="/" passHref>
+            <Link href="/books/recommended" passHref>
               <a>Books</a>
             </Link>
             <FontAwesomeIcon icon={faChevronDown} className="h-2 w-2 ml-2" />

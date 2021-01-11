@@ -7,7 +7,6 @@ import Home from "../components/home";
 import Footer from "../components/footer";
 
 const Index = () => {
-  const [articles, setArticles] = useState([]);
   const [notification, setNotification] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -18,20 +17,6 @@ const Index = () => {
       setLoggedIn(false);
     }
   });
-
-  //get and store articles
-  useEffect(() => {
-    fire
-      .firestore()
-      .collection("articles")
-      .onSnapshot((snap) => {
-        const articles = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setArticles(articles);
-      });
-  }, []);
 
   const handleLogout = () => {
     fire
@@ -45,14 +30,12 @@ const Index = () => {
       });
   };
 
-  // const hoverHighlight = "hover:text-red transition duration-200";
-
   return (
     <div id="indexContainer" className="h-screen">
       <Head>
         <title>Gulag Anthem | Home</title>
       </Head>
-      <Header notification={notification} loggedIn={loggedIn} articles={articles} handleLogout={handleLogout} />
+      <Header notification={notification} loggedIn={loggedIn} handleLogout={handleLogout} />
       <Home />
       <Footer />
     </div>

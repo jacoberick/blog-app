@@ -7,20 +7,21 @@ import Footer from "../../components/footer";
 
 const Recommended = () => {
   const [recBooks, setRecBooks] = useState([]);
+
   //get and store recommended books
   useEffect(() => {
     fire
       .firestore()
       .collection("recommended-books")
       .onSnapshot((snap) => {
-        const recBooks = snap.docs.map((doc) => ({
+        const bookList = snap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setRecBooks(recBooks);
-        console.log(recBooks);
+        setRecBooks(bookList);
       });
   }, []);
+
   return (
     <div id="recommendedDiv" className="bg-background h-screen">
       <Head>
@@ -35,7 +36,7 @@ const Recommended = () => {
             id="bookContainer"
             className={`m-6 h-60 w-40 shadow-md flex justify-center items-center rounded-md cursor-pointer shadow-nuemorphic`}
           >
-            <Link href={`/`} className="">
+            <Link href={"/books/recommended/" + b.id}>
               <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />
             </Link>
           </div>

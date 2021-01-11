@@ -1,8 +1,7 @@
-import fire from "../../config/fire-conf";
+import fire from "../../../config/fire-conf";
 import Link from "next/link";
 
 const Article = (props) => {
-  // console.log("test", props);
   return (
     <div>
       <h2>{props.title}</h2>
@@ -16,21 +15,18 @@ const Article = (props) => {
 
 export const getServerSideProps = async ({ query }) => {
   const content = {};
-
   await fire
     .firestore()
-    .collection("articles")
+    .collection("recommended-books")
     .doc(query.id)
     .get()
     .then((result) => {
       content["title"] = result.data().title;
-      content["content"] = result.data().content;
     });
 
   return {
     props: {
       title: content.title,
-      content: content.content,
     },
   };
 };
