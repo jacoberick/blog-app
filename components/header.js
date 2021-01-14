@@ -1,42 +1,39 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import CreatePost from "../components/CreatePost";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faBook, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faNewspaper } from "@fortawesome/free-regular-svg-icons";
 
-const bookDropDownMenu = (
-  <div>
-    <Link href="/" passHref>
-      <a>Recommended Books</a>
-    </Link>
-  </div>
-);
-
-const hoverHighlight = "hover:text-red transition duration-200";
-
-const HandleMouseOver = () => {};
+const navLink = "flex items-center mr-8 hover:text-red transition duration-200";
 
 const Header = ({ notification, loggedIn, articles, handleLogout }) => {
   return (
-    <div id="header" className="text-base font-body text-white bg-jet">
+    <div id="header" className="text-sm font-body text-white bg-jet">
       <div id="headerInner " className="py-4 px-24 flex justify-between content-center">
         <Link href="/">
           <h1 className="font-header text-3xl cursor-pointer">Gulag Anthem</h1>
         </Link>
-        <div id="navLinks" className="flex items-center">
+        <nav id="navLinks" className="flex items-center">
           <Link href="/" passHref>
-            <a className={`ml-8 ${hoverHighlight}`}>Articles</a>
+            <a className={navLink}>
+              <FontAwesomeIcon icon={faNewspaper} className="text-lg mr-2" />
+              Articles
+            </a>
           </Link>
-          <div id="booksContainer" className={`flex items-center ml-8 ${hoverHighlight}`}>
-            <Link href="/books/recommended" passHref>
-              <a>Books</a>
-            </Link>
-            <FontAwesomeIcon icon={faChevronDown} className="h-2 w-2 ml-2" />
-          </div>
+          <Link href="/books/recommended" passHref>
+            <a className={navLink}>
+              <FontAwesomeIcon icon={faBook} className="text-lg mr-2" />
+              Books
+              <FontAwesomeIcon icon={faChevronDown} className="h-2 w-2 ml-1" />
+            </a>
+          </Link>
           <Link href="/" passHref>
-            <a className={`ml-8 ${hoverHighlight}`}>Contact</a>
+            <a className={navLink}>
+              <FontAwesomeIcon icon={faEnvelope} className="text-lg mr-2" />
+              Contact
+            </a>
           </Link>
-        </div>
+        </nav>
       </div>
     </div>
   );

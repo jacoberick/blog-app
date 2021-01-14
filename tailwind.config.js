@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       header: ["Josefin Sans", "sans-serif"],
       body: ["Open Sans", "sans-serif"],
+      bookTitle: ["Fjalla One", "sans-serif"],
     },
     colors: {
       jet: "#2e2e2e",
@@ -19,6 +20,7 @@ module.exports = {
     },
     boxShadow: {
       nuemorphic: "-7px -7px 10px #fefefe, 7px 7px 10px #c0cad7",
+      inset: "inset -7px -7px 10px #fefefe, inset 7px 7px 10px #c0cad7",
     },
   },
   variants: {
