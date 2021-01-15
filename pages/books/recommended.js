@@ -35,7 +35,7 @@ const Recommended = () => {
             <div
               key={b.id}
               id="bookContainer"
-              className={`shadow-nuemorphic m-6 h-60 w-40 flex justify-center items-center rounded-md cursor-pointer hover:shadow-inset transition-shadow duration-500`}
+              className={`shadow-neumorphic hover:animate-shadowFade m-6 h-60 w-40 flex justify-center items-center rounded-md cursor-pointer transition-shadow duration-1000`}
             >
               <Link href={"/books/recommended/" + b.id}>
                 <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />
