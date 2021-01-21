@@ -20,22 +20,7 @@ module.exports = {
     },
     boxShadow: {
       neumorphic: "-7px -7px 10px #fefefe, 7px 7px 10px #c0cad7",
-      inset: "-7px -7px 10px #fefefe inset, 7px 7px 10px #c0cad7 inset",
     },
-    keyframes: {
-      shadowFade: {
-        "0%": { boxShadow: "-7px -7px 10px #fefefe, 7px 7px 10px #c0cad7" },
-        "50%": { boxShadow: "none" },
-        "100%": { boxShadow: "-7px -7px 10px #fefefe inset, 7px 7px 10px #c0cad7 inset" },
-      },
-    },
-    animation: {
-      shadowFade: "shadowFade 0.35s linear forwards",
-    },
-  },
-  variants: {
-    extend: {},
-    animation: ["responsive", "hover"],
   },
   plugins: [],
 };

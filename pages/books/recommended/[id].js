@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const Article = (props) => {
   const photoCSS = "shadow-nuemorphic w-1/3 flex justify-center rounded-md p-4 items-center mx-14";
+
   return (
     <div className="p-4">
       <div id="bookDetailInner" className="pb-10">
@@ -14,9 +15,9 @@ const Article = (props) => {
           <div id="mugshot" className={photoCSS}>
             <img className="w-60 rounded-md" src={props.mugshot} alt="" />
           </div>
-          <div id="bookAuthorInfo" className="w-1/3 text-lg shadow-nuemorphic rounded-md p-8 leading-relaxed">
-            <p className="mb-6">{props.authorDescription}</p>
-            <p>{props.bookDescription}</p>
+          <div id="bookAuthorInfo" className="w-1/3 text-lg shadow-nuemorphic rounded-md leading-relaxed">
+            <p className="mb-6">&nbsp;{props.authorDescription}</p>
+            <p>&nbsp;{props.bookDescription}</p>
           </div>
           <div id="cover" className={photoCSS}>
             <img className="rounded-md w-60" src={props.cover} alt="" />

@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
-import fire from "../config/fire-conf";
 import "../styles/global.css";
 import "../styles/tailwind.css";
+import { motion } from "framer-motion";
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, router }) => {
   return (
-    <div>
+    <motion.div
+      key={router.route}
+      initial="init"
+      animate="animate"
+      variants={{ init: { opacity: 0 }, animate: { opacity: 1 } }}
+    >
       <Component {...pageProps} />
-    </div>
+    </motion.div>
   );
 };
 
