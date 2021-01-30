@@ -41,6 +41,7 @@ const Recommended = () => {
           {recBooks.map((b) => (
             <motion.div
               whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
               key={b.id}
               id="bookContainer"
               className={`shadow-neumorphic m-6 h-60 w-40 flex justify-center items-center rounded-md cursor-pointer`}

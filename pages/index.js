@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import fire from "../config/fire-conf";
-import Link from "next/link";
 import Head from "next/head";
 import Header from "../components/header";
 import Home from "../components/home";
