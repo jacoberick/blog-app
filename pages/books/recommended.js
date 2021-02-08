@@ -30,7 +30,7 @@ const Recommended = () => {
       </Head>
       <Header />
       <div id="recommendedInner">
-        <h1 className="font-header text-5xl text-center mt-10 mb-10 text-jet">RECOMMENDED BOOKS</h1>
+        <h1 className="font-header text-5xl text-center mt-10 mb-10 text-main">RECOMMENDED BOOKS</h1>
         <motion.div
           initial="hidden"
           animate="visible"
