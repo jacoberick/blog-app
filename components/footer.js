@@ -6,7 +6,7 @@ const hoverHighlight = "hover:text-highlight transition duration-200";
 
 const Footer = ({}) => {
   return (
-    <div className="font-body h-1/6 bg-main flex text-white px-24">
+    <div className="font-body h-1/6 bg-main flex text-white px-24 absolute w-full bottom-0">
       <footer className="flex justify-between w-full items-center">
         <div id="emailSubSection">
           <p className="mb-4">Subscribe to the GA mailing list...</p>
