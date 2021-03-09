@@ -25,6 +25,13 @@ const Header = () => {
             </a>
           </Link>
 
+          <Link href="/videos">
+            <a className={navLink}>
+              <FontAwesomeIcon icon={faVideo} className={linkSymbol} />
+              Videos
+            </a>
+          </Link>
+
           <div id="BookNavLinkContainer" className="group relative cursor-pointer">
             <a
               id="booksLink"
@@ -43,20 +50,8 @@ const Header = () => {
                   <a>Recommended Books</a>
                 </Link>
               </li>
-              <li className={dropDownLink}>
-                <Link href="/books/recommended">
-                  <a>Recommended Books</a>
-                </Link>
-              </li>
             </ul>
           </div>
-
-          <Link href="/videos">
-            <a className={navLink}>
-              <FontAwesomeIcon icon={faVideo} className={linkSymbol} />
-              Videos
-            </a>
-          </Link>
 
           <Link href="/contact">
             <a className={navLink}>

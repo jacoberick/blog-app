@@ -22,8 +22,8 @@ const Book = ({ title, author, mugshot, authorDescription, bookDescription, cove
             id="bookAuthorInfo"
             className="w-1/3 text-lg shadow-nuemorphic rounded-md leading-relaxed flex flex-col justify-center"
           >
-            <p className="mb-6">&nbsp;{authorDescription}</p>
-            <p>&nbsp;{bookDescription}</p>
+            <p className="mb-6">&nbsp;&nbsp;&nbsp;&nbsp;{authorDescription}</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;{bookDescription}</p>
           </div>
           <div id="cover" className={photoCSS}>
             <img className="rounded-md w-60" src={cover} alt="" />
