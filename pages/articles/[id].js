@@ -10,7 +10,7 @@ const Article = ({ title, content, thumbnail, intro }) => {
       <h2 className="text-center font-header text-5xl">{title}</h2>
       <p className="text-center mt-4 text-xl italic">{intro}</p>
       <img src={thumbnail} className="mx-auto my-8" />
-      {content}
+      <div dangerouslySetInnerHTML={{__html: content}}></div>
     </div>
   );
 };
@@ -31,8 +31,8 @@ export const getServerSideProps = async ({ query }) => {
     props: {
       title: content.title,
       intro: content.intro,
-      content: content.content,
       thumbnail: content.thumbnail,
+      content: content.content,
     },
   };
 };
