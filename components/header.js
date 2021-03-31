@@ -8,7 +8,7 @@ const navLink = "flex items-center mr-8 hover:text-highlight transition duration
 const dropDownLink = "text-main p-2 hover:bg-grey rounded transition duration-150";
 const linkSymbol = "text-sm mr-2";
 
-const Header = () => {
+const Header = ({notification, loggedIn, handleLogout}) => {
   return (
     <div id="header" className="text-sm font-body text-white bg-main">
       <div id="headerInner " className="px-24 flex justify-between items-center content-center">
@@ -53,12 +53,18 @@ const Header = () => {
             </ul>
           </div>
 
-          <Link href="/contact">
+          <Link href="/contact">  
             <a className={navLink}>
               <FontAwesomeIcon icon={faEnvelope} className={linkSymbol} />
               Contact
             </a>
           </Link>
+
+          {loggedIn && 
+            <Link href="/admin">
+              Admin
+            </Link>
+          }
         </nav>
       </div>
     </div>

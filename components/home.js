@@ -23,12 +23,13 @@ const Home = ({ title }) => {
   return (
     <div id="home" className="h-4/5 bg-background">
       <div id="articlesMap" className="flex justify-center flex-wrap max-w-4xl mx-auto">
-        {articles.map((a) => (
+        {articles.map((a, idx) => (
           <motion.div
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             id="articleContainer"
             className="w-56 m-6 cursor-pointer"
+            key={idx}
           >
             <Link href={"articles/" + a.id}>
               <div className="flex flex-col items-center">
