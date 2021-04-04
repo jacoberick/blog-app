@@ -11,17 +11,18 @@ module.exports = {
       colors: {
         main: "#2E4057",
         white: "#f9f9f9",
-        highlight: "#e80f00",
-        background: "#e0e5ec",
+        highlight: "#DA3A2F",
+        background: "#fefefe",
         text: "#243345",
         grey: "#b8b8b8",
       },
       boxShadow: {
-        neumorphic: "-7px -7px 10px #fefefe, 7px 7px 10px #c0cad7",
+        neumorphic: "-7px -7px 10px #cecece, 7px 7px 10px #c0cad7",
         dropDown: "2px 2px 5px rgba(46, 64, 87, 0.81)",
       },
       height: {
         header: "4.25rem",
+        almostScreen: "calc(100vh - 68px)",
       },
     },
   },

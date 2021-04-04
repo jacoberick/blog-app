@@ -44,7 +44,7 @@ const Recommended = () => {
               whileTap={{ scale: 0.9 }}
               key={b.id}
               id="bookContainer"
-              className={`shadow-neumorphic m-6 h-60 w-40 flex justify-center items-center rounded-md cursor-pointer`}
+              className={`border-4 border-main m-6 h-60 w-40 flex justify-center items-center rounded-md cursor-pointer`}
             >
               <Link href={"/books/recommended/" + b.id}>
                 <img src={b.cover} alt={`${b.title} Book Cover`} className={`w-28 rounded-md`} />

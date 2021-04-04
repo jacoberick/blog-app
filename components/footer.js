@@ -6,7 +6,7 @@ const hoverHighlight = "hover:text-highlight transition duration-200";
 
 const Footer = ({}) => {
   return (
-    <div className="font-body h-1/6 bg-main flex text-white px-24 absolute w-full bottom-0">
+    <div className="font-body h-1/6 bg-main flex text-white px-24 w-full">
       <footer className="flex justify-between w-full items-center">
         <div id="emailSubSection">
           <p className="mb-4">Subscribe to the GA mailing list...</p>
@@ -16,8 +16,12 @@ const Footer = ({}) => {
               type="text"
               placeholder="E-mail"
             />
-            <button className="focus:outline-none">
-              <p className={`border-2 p-1 rounded ${hoverHighlight} h-8 flex items-center`}>Subscribe</p>
+            <button className={`focus:outline-none`}>
+              <p
+                className={`hover:border-highlight ${hoverHighlight} transition duration-200 border-2 p-1 m-0 rounded h-8 flex items-center`}
+              >
+                Subscribe
+              </p>
             </button>
           </div>
         </div>

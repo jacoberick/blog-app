@@ -1,14 +1,18 @@
 import fire from "../../../config/fire-conf";
 import Head from "next/head";
+import Link from "next/link";
 
 const Book = ({ title, author, mugshot, authorDescription, bookDescription, cover }) => {
-  const photoCSS = "shadow-nuemorphic w-1/3 flex justify-center rounded-md p-4 items-center mx-14";
+  const photoCSS = "w-1/3 flex justify-center rounded-md p-4 items-center mx-14";
 
   return (
     <div className="p-4">
       <Head>
         <title>{`${title}`}</title>
       </Head>
+      <Link href="/books/recommended">
+        <p className="hover:underline m-0 cursor-pointer">Back</p>
+      </Link>
       <div id="bookDetailInner" className="pb-10 text-main">
         <div id="topSection" className="flex items-center flex-col">
           <h1 className="font-bookTitle text-9xl uppercase">{title}</h1>
@@ -18,12 +22,9 @@ const Book = ({ title, author, mugshot, authorDescription, bookDescription, cove
           <div id="mugshot" className={photoCSS}>
             <img className="w-60 rounded-md" src={mugshot} alt="" />
           </div>
-          <div
-            id="bookAuthorInfo"
-            className="w-1/3 text-lg shadow-nuemorphic rounded-md leading-relaxed flex flex-col justify-center"
-          >
-            <p className="mb-6">&nbsp;&nbsp;&nbsp;&nbsp;{authorDescription}</p>
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;{bookDescription}</p>
+          <div id="bookAuthorInfo" className="w-1/3 text-lg rounded-md leading-relaxed flex flex-col justify-center">
+            <p className="mb-6">{authorDescription}</p>
+            <p>{bookDescription}</p>
           </div>
           <div id="cover" className={photoCSS}>
             <img className="rounded-md w-60" src={cover} alt="" />
