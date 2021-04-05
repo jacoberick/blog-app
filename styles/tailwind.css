@@ -9,5 +9,8 @@
   }
   h6 {
     @apply mb-10;
+    @apply font-quote;
+    @apply text-2xl;
+    @apply leading-loose;
   }
 }

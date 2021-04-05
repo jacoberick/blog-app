@@ -7,6 +7,7 @@ module.exports = {
         header: ["Josefin Sans", "sans-serif"],
         body: ["Open Sans", "sans-serif"],
         bookTitle: ["Fjalla One", "sans-serif"],
+        quote: ["Merriweather", "serif"],
       },
       colors: {
         main: "#2E4057",
