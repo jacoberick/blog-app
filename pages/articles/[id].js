@@ -2,7 +2,7 @@ import fire from "../../config/fire-conf";
 import Link from "next/link";
 import Header from "../../components/header";
 
-const Article = ({ title, content, thumbnail, intro }) => {
+const Article = ({ title, content, thumbnail, intro, author, date }) => {
   return (
     <div className="text-main">
       <Header />
@@ -16,7 +16,13 @@ const Article = ({ title, content, thumbnail, intro }) => {
             <h3 className="text-center text-xl italic">{intro}</h3>
           </div>
         </div>
-        <div className="max-w-screen-md text-xl mt-16" dangerouslySetInnerHTML={{ __html: content }}></div>
+        <div className="max-w-screen-md">
+          <div id="info" className="w-full mt-12">
+            <p className="font-bold m-0">By {author}</p>
+            <p className="">Published {date}</p>
+          </div>
+          <div className="text-xl" dangerouslySetInnerHTML={{ __html: content }}></div>
+        </div>
       </div>
     </div>
   );
@@ -38,6 +44,8 @@ export const getServerSideProps = async ({ query }) => {
     props: {
       title: content.title,
       intro: content.intro,
+      author: content.author,
+      date: content.date,
       thumbnail: content.thumbnail,
       content: content.content,
     },

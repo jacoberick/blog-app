@@ -7,6 +7,8 @@ const CreateArticle = () => {
   const [article, setArticle] = useState({
     title: "",
     intro: "",
+    author: "",
+    date: "",
     thumbnail: null,
     content: "",
   });
@@ -39,20 +41,54 @@ const CreateArticle = () => {
   };
 
   return (
-    <section>
-      <h2>New article.</h2>
+    <section className="flex items-center flex-col p-2">
+      <h2 className="font-header text-3xl mb-6">New Article</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <input type="text" name="title" onChange={(e) => setArticle({ ...article, title: e.target.value })} />
+        <div id="titleAndIntro" className="flex justify-center">
+          <div className="mb-6">
+            TITLE
+            <input
+              className="border ml-4 mr-4 rounded"
+              type="text"
+              name="title"
+              onChange={(e) => setArticle({ ...article, title: e.target.value })}
+            />
+          </div>
+          <div>
+            INTRO
+            <input
+              className="border ml-4 mr-4 rounded"
+              type="text"
+              name="intro"
+              onChange={(e) => setArticle({ ...article, intro: e.target.value })}
+            />
+          </div>
+          <div>
+            AUTHOR
+            <input
+              className="border ml-4 mr-4 rounded"
+              type="text"
+              name="author"
+              onChange={(e) => setArticle({ ...article, author: e.target.value })}
+            />
+          </div>
+          <div>
+            DATE
+            <input
+              className="border ml-4 rounded"
+              type="text"
+              name="date"
+              onChange={(e) => setArticle({ ...article, date: e.target.value })}
+            />
+          </div>
         </div>
-        <div>
-          <input type="text" name="intro" onChange={(e) => setArticle({ ...article, intro: e.target.value })} />
-        </div>
-        <div>
+        <div className="flex justify-center">
+          THUMBNAIL
           <input
             type="file"
             name="thumbnail"
             onChange={(e) => setArticle({ ...article, thumbnail: e.target.files[0] })}
+            className="mb-6 ml-4"
           />
         </div>
         <Editor
@@ -72,8 +108,13 @@ const CreateArticle = () => {
           }}
           onEditorChange={(content) => setArticle({ ...article, content })}
         />
-        <div>
-          <button type="submit">Create</button>
+        <div className="flex justify-center my-4">
+          <button
+            className="border-2 border-main rounded px-4 py-2 hover:bg-main hover:text-white transition"
+            type="submit"
+          >
+            Create
+          </button>
         </div>
       </form>
     </section>

@@ -1,16 +1,24 @@
-import React, {useState, useEffect} from 'react'
-import CreateArticle from './create/article'
+import React, { useState, useEffect } from "react";
+import CreateArticle from "./create/article";
+import CreateBook from "./create/book";
+import Header from "../../components/header.js";
 
-const Create = () => {
-  const [contentType, setContentType] = useState('article')
-
+const Create = (props) => {
+  const [contentType] = useState(props.query.type);
+  console.log(props);
   return (
-    <main>
-      <h1>Create new content!</h1>
-      {contentType === 'article' && <CreateArticle />}
-      {/* add other content type components */}
-    </main>
-  )
-}
+    <div>
+      <Header />
+      <main>
+        {contentType === "article" && <CreateArticle />}
+        {contentType === "recommended-book" && <CreateBook />}
+        {/* add other content type components */}
+      </main>
+    </div>
+  );
+};
 
-export default Create
+Create.getInitialProps = ({ query }) => {
+  return { query };
+};
+export default Create;
