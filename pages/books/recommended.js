@@ -36,7 +36,7 @@ const Recommended = () => {
           animate="visible"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delay: 1 } } }}
           id="books"
-          className={`flex justify-center flex-wrap max-w-4xl mx-auto mb-28`}
+          className={`flex justify-center mx-auto flex-wrap max-w-4xl mb-28`}
         >
           {recBooks.map((b) => (
             <motion.div

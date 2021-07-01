@@ -43,7 +43,7 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
             </a>
             <ul
               id="subMenu"
-              className="hidden w-44 p-2 absolute group-hover:flex justify-center items-center flex-col rounded shadow-dropDown"
+              className="bg-background hidden w-44 p-2 absolute group-hover:flex justify-center items-center flex-col rounded shadow-dropDown"
             >
               <li className={dropDownLink}>
                 <Link href="/books/recommended">

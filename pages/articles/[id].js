@@ -1,5 +1,4 @@
 import fire from "../../config/fire-conf";
-import Link from "next/link";
 import Header from "../../components/header";
 
 const Article = ({ title, content, thumbnail, intro, author, date }) => {

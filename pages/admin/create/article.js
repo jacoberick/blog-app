@@ -11,10 +11,13 @@ const CreateArticle = () => {
     date: "",
     thumbnail: null,
     content: "",
+    unixEpoch: null,
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let unixDate = Date.now();
+    setArticle({ ...article, unixEpoch: { unixDate } });
     let newArticle = { ...article };
 
     if (article.thumbnail) {

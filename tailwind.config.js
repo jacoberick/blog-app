@@ -8,6 +8,7 @@ module.exports = {
         body: ["Open Sans", "sans-serif"],
         bookTitle: ["Fjalla One", "sans-serif"],
         quote: ["Merriweather", "serif"],
+        featured: ["Castoro", "serif"],
       },
       colors: {
         main: "#2E4057",
@@ -24,12 +25,16 @@ module.exports = {
       height: {
         header: "4.25rem",
         almostScreen: "calc(100vh - 68px)",
+        home: "80vh ",
       },
     },
   },
   variants: {
-    display: ["group-hover"],
-    height: ["group-hover"],
+    extend: {
+      display: ["group-hover"],
+      height: ["group-hover"],
+      gridColumnStart: ["last"],
+    },
   },
   plugins: [],
 };

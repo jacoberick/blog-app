@@ -33,7 +33,7 @@ const Admin = () => {
         <nav>
           <Link href={{ pathname: "/admin/create", query: { type: contentType } }}>
             <button
-              className="border-2 border-main rounded px-4 py-2 hover:bg-main hover:text-white transition"
+              className="border-2 border-main rounded px-4 py-2 hover:bg-main hover:text-white transition last:col-start-3"
               type="submit"
             >
               Create

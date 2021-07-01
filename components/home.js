@@ -1,44 +1,60 @@
 import { useState, useEffect } from "react";
-import fire from "../config/fire-conf";
+import fire, { db } from "../config/fire-conf";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 const Home = ({ title }) => {
   const [articles, setArticles] = useState([]);
+  const [featured, setFeatured] = useState(null);
 
-  //get and store articles
+  //get, store, and order articles from firebase
   useEffect(() => {
-    fire
-      .firestore()
-      .collection("articles")
+    db.collection("articles")
+      .orderBy("unixEpoch")
       .onSnapshot((snap) => {
-        const artList = snap.docs.map((doc) => ({
+        let articleList = snap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setArticles(artList);
+        setArticles(articleList);
+
+        //select and set featured content
+        let grabFeature = articleList.find((a) => a.featured === true) || null;
+        setFeatured(grabFeature);
       });
   }, []);
 
   return (
-    <div id="home" className="h-4/5 bg-background">
-      <div id="articlesMap" className="flex justify-center flex-wrap max-w-4xl mx-auto">
-        {articles.map((a, idx) => (
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            id="articleContainer"
-            className="w-56 m-6 cursor-pointer"
-            key={idx}
-          >
-            <Link href={"articles/" + a.id}>
-              <div className="flex flex-col items-center">
-                <img src={a.thumbnail} alt="" className="rounded-md" />
-                <p id="articleTitle">{a.title}</p>
+    <div id="homeContent" className="h-home bg-background flex items-center">
+      <div id="featuredContainer" className="ml-10">
+        {/* If featured, display content*/}
+        {featured && (
+          <div id="featuredInner" className="flex items-center flex-col">
+            <div id="top" className="">
+              <div id="featuredContainer" className="flex items-center">
+                <div id="triangle" className="h-3 w-3 bg-main rounded-sm relative"></div>
+                <div id="trianglePing" className="h-3 w-3 bg-main rounded-sm animate-ping absolute"></div>
+                <p className="m-0 font-featured  pt-1 ml-2">
+                  <span className="text-red-600">READ </span>FEATURED
+                </p>
               </div>
-            </Link>
-          </motion.div>
-        ))}
+              <Link href={`articles/${featured.id}`}>
+                <motion.img
+                  whileHover={{ scale: 1.03 }}
+                  src={featured.thumbnail}
+                  className="cursor-pointer w-80 rounded"
+                ></motion.img>
+              </Link>
+            </div>
+            <div id="bottom" className="mt-2">
+              <div id="info" className="mb-2 font-body font-semibold">
+                <p className="m-0 text-xl">
+                  {featured.title}: {featured.intro}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
