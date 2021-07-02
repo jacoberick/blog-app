@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import fire, { db, storage } from "../../../config/fire-conf";
 import { v4 as uuidv4 } from "uuid";
+import { DragFeature } from "framer-motion";
 
 const CreateArticle = () => {
   const [article, setArticle] = useState({
@@ -16,8 +17,7 @@ const CreateArticle = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let unixDate = Date.now();
-    setArticle({ ...article, unixEpoch: { unixDate } });
+    setArticle({ ...article, unixEpoch: Date.now() });
     let newArticle = { ...article };
 
     if (article.thumbnail) {

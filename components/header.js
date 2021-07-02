@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faBook, faEnvelope, faVideo } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faBook, faEnvelope, faVideo, faPalette } from "@fortawesome/free-solid-svg-icons";
 import { faNewspaper } from "@fortawesome/free-regular-svg-icons";
 
 const navLink = "flex items-center mr-8 hover:text-highlight transition duration-175";
@@ -18,10 +18,17 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
           </Link>
         </div>
         <nav id="navLinks" className="flex items-center">
-          <Link href="/">
+          <Link href="/articles">
             <a className={navLink}>
               <FontAwesomeIcon icon={faNewspaper} className={linkSymbol} />
               Articles
+            </a>
+          </Link>
+
+          <Link href="/art">
+            <a className={navLink}>
+              <FontAwesomeIcon icon={faPalette} className={linkSymbol} />
+              Art
             </a>
           </Link>
 

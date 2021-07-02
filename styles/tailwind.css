@@ -13,4 +13,8 @@
     @apply text-xl;
     @apply leading-loose;
   }
+  h2 {
+    @apply font-featured;
+    @apply text-base;
+  }
 }

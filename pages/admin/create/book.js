@@ -45,14 +45,18 @@ const CreateBook = () => {
       <h2>New recommended book.</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
+          Title:
           <input type="text" name="title" onChange={(e) => setBook({ ...book, title: e.target.value })} />
         </div>
         <div>
+          Author:
           <input type="text" name="author" onChange={(e) => setBook({ ...book, intro: e.target.value })} />
         </div>
         <div>
+          Book Photo:
           <input type="file" name="bookPhoto" onChange={(e) => setBook({ ...book, thumbnail: e.target.files[0] })} />
         </div>
+        Author Description:
         <Editor
           initialValue="<p></p>"
           init={{
@@ -70,6 +74,7 @@ const CreateBook = () => {
           }}
           onEditorChange={(authorDesc) => setBook({ ...book, content })}
         />
+        Book Description
         <Editor
           initialValue="<p></p>"
           init={{

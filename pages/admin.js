@@ -22,6 +22,14 @@ const Admin = () => {
             Article
           </button>
           <button
+            onClick={() => setContentType("art")}
+            className={`ml-4 transition focus:outline-none ${inputClass} ${
+              contentType === "art" ? "bg-main text-white" : null
+            }`}
+          >
+            Art
+          </button>
+          <button
             onClick={() => setContentType("recommended-book")}
             className={`focus:outline-none transition ${inputClass} ml-4 my-6 ${
               contentType === "recommended-book" ? "bg-main text-white" : null
