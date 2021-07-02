@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const Home = ({ title }) => {
   const [articles, setArticles] = useState([]);
   const [featured, setFeatured] = useState(null);
+  const [art, setArt] = useState([]);
 
   //get, store, and order articles from firebase
   useEffect(() => {
@@ -22,22 +23,33 @@ const Home = ({ title }) => {
         let grabFeature = articleList.find((a) => a.featured === true) || null;
         setFeatured(grabFeature);
       });
+
+    db.collection("art")
+      .orderBy("unixEpoch")
+      .onSnapshot((snap) => {
+        let artCollection = snap.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setArt(artCollection);
+        console.log(art);
+      });
   }, []);
 
   const rectangle = <div id="rectangle" className="mb-1 h-3 w-3 bg-main rounded-sm relative"></div>;
 
   return (
-    <div id="homeContent" className="h-home bg-background flex items-center">
+    <div id="homeContent" className="h-home bg-background flex items-center justify-center">
       <div id="homeContentInner" className="flex">
-        <div id="featuredContainer" className="ml-10">
-          {/* If featured, display content*/}
+        {/* FEATURED SECTION */}
+        <div id="featuredContainer" className="">
           {featured && (
-            <div id="featuredInner" className="flex items-center flex-col">
+            <div id="featuredInner" className="flex items-center flex-col mx-10">
               <div id="top" className="">
-                <div id="readFeaturedContainer" className="flex items-center">
+                <div id="readFeaturedContainer" className="flex items-center mb-2 ">
                   {rectangle}
                   <div id="rectanglePing" className="mb-1 h-3 w-3 bg-main rounded-sm animate-ping absolute"></div>
-                  <h2 className="m-0 font-featured ml-2">
+                  <h2 className="ml-2">
                     <span className="text-red-600">READ </span>FEATURED
                   </h2>
                 </div>
@@ -45,13 +57,13 @@ const Home = ({ title }) => {
                   <motion.img
                     whileHover={{ scale: 1.03 }}
                     src={featured.thumbnail}
-                    className="cursor-pointer w-80 rounded-sm"
+                    className="cursor-pointer w-80 rounded-sm border-2 border-main"
                   ></motion.img>
                 </Link>
               </div>
               <div id="bottom" className="mt-2">
                 <div id="info" className="mb-2 font-semibold">
-                  <p className="m-0 text-xl">
+                  <p className="m-0 text-base">
                     {featured.title}: {featured.intro}
                   </p>
                 </div>
@@ -59,14 +71,15 @@ const Home = ({ title }) => {
             </div>
           )}
         </div>
-        <div id="RecentArticles" className="ml-20 flex flex-col justify-between">
-          <div id="readRecentArticles" className="flex items-center">
+
+        {/* RECENT ARTICLES SECTION */}
+        <div id="RecentArticles" className="flex flex-col justify-between mx-24">
+          <div id="readRecentArticles" className="flex items-center justify-center">
             {rectangle}
             <h2 className="ml-2">
               <span className="text-red-600">READ </span>RECENT ARTICLES
             </h2>
           </div>
-
           {articles &&
             articles.slice(0, 3).map((a, idx) => (
               <motion.div
@@ -74,10 +87,15 @@ const Home = ({ title }) => {
                 whileTap={{ scale: 0.9 }}
                 id="articleContainer"
                 className="cursor-pointer"
+                key={idx}
               >
                 <Link href={`articles/${a.id}`}>
                   <div className="flex items-center">
-                    <img src={a.thumbnail} alt="" className="rounded-sm w-44 h-24 object-top object-cover"></img>
+                    <img
+                      src={a.thumbnail}
+                      alt=""
+                      className="border-2 border-main rounded-sm w-44 h-24 object-top object-cover"
+                    ></img>
                     <p className="ml-10 mb-0  text-base font-semibold w-72">
                       {a.title}: {a.intro}
                     </p>
@@ -86,9 +104,9 @@ const Home = ({ title }) => {
               </motion.div>
             ))}
           <Link href="/">
-            <button className="mx-auto">
+            <button className="mx-auto border-2 border-main p-2 rounded hover:text-white hover:bg-main transition duration-150">
               <Link href="/articles">
-                <h2 className="hover:underline transition duration-500">READ ALL ARTICLES</h2>
+                <h2 className="text-sm mt-1">VIEW ALL ARTICLES</h2>
               </Link>
             </button>
           </Link>

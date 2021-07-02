@@ -10,7 +10,7 @@ const Admin = () => {
     <div>
       <Header />
       <main className="p-2 flex flex-col items-center justify-center h-almostScreen">
-        <h1 className="font-header text-4xl">Hello, Admin.</h1>
+        <h1 className="font-header text-4xl">Hello, Jacob.</h1>
         <h2 className="my-2 text-lg">What are you creating today?</h2>
         <div>
           <button

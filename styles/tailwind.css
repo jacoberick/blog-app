@@ -14,7 +14,7 @@
     @apply leading-loose;
   }
   h2 {
-    @apply font-featured;
+    @apply font-header;
     @apply text-base;
   }
 }
