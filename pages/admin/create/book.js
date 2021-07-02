@@ -41,20 +41,37 @@ const CreateBook = () => {
   };
 
   return (
-    <section>
-      <h2>New recommended book.</h2>
+    <section className="flex items-center flex-col p-2">
+      <h2 className="font-header text-3xl mb-6">New recommended book.</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          Title:
-          <input type="text" name="title" onChange={(e) => setBook({ ...book, title: e.target.value })} />
-        </div>
-        <div>
-          Author:
-          <input type="text" name="author" onChange={(e) => setBook({ ...book, intro: e.target.value })} />
-        </div>
-        <div>
-          Book Photo:
-          <input type="file" name="bookPhoto" onChange={(e) => setBook({ ...book, thumbnail: e.target.files[0] })} />
+        <div className="top" className="flex justify-center">
+          <div className="">
+            Title:
+            <input
+              className="border ml-4 mr-4 rounded"
+              type="text"
+              name="title"
+              onChange={(e) => setBook({ ...book, title: e.target.value })}
+            />
+          </div>
+          <div>
+            Author:
+            <input
+              className="border ml-4 mr-4 rounded"
+              type="text"
+              name="author"
+              onChange={(e) => setBook({ ...book, intro: e.target.value })}
+            />
+          </div>
+          <div>
+            Book Photo:
+            <input
+              className="ml-4 mr-4 rounded"
+              type="file"
+              name="bookPhoto"
+              onChange={(e) => setBook({ ...book, thumbnail: e.target.files[0] })}
+            />
+          </div>
         </div>
         Author Description:
         <Editor

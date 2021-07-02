@@ -47,7 +47,7 @@ const CreateArticle = () => {
     <section className="flex items-center flex-col p-2">
       <h2 className="font-header text-3xl mb-6">New Article</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
-        <div id="titleAndIntro" className="flex justify-center">
+        <div id="top" className="flex justify-center">
           <div className="mb-6">
             TITLE
             <input
