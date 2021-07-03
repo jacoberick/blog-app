@@ -1,8 +1,12 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTwitter,
+  faInstagram,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
-const hoverHighlight = "hover:text-highlight transition duration-200";
+const hoverHighlight = 'hover:text-highlight transition duration-200';
 
 const Footer = ({}) => {
   return (
@@ -26,10 +30,18 @@ const Footer = ({}) => {
           </div>
         </div>
         <div id="socialLinks" className="flex">
-          <a href="http://twitter.com/gulaganthem" target="_blank" className={`ml-16 p-2 ${hoverHighlight}`}>
+          <a
+            href="http://twitter.com/gulaganthem"
+            target="_blank"
+            className={`ml-16 p-2 ${hoverHighlight}`}
+          >
             <FontAwesomeIcon icon={faTwitter} className="text-2xl" />
           </a>
-          <a href="http://instagram.com/gulaganthem" target="_blank" className={`ml-16 p-2 ${hoverHighlight}`}>
+          <a
+            href="http://instagram.com/gulaganthem"
+            target="_blank"
+            className={`ml-16 p-2 ${hoverHighlight}`}
+          >
             <FontAwesomeIcon icon={faInstagram} className="text-2xl" />
           </a>
           <a

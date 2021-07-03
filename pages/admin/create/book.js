@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Editor } from "@tinymce/tinymce-react";
-import fire, { db, storage } from "../../../config/fire-conf";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import fire, { db, storage } from '../../../config/fire-conf';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateBook = () => {
   const [book, setBook] = useState({
-    title: "",
-    author: "",
-    authorDesc: "",
-    bookDesc: "",
+    title: '',
+    author: '',
+    authorDesc: '',
+    bookDesc: '',
     bookPhoto: null,
     authorPhoto: null,
   });
@@ -28,14 +28,14 @@ const CreateBook = () => {
         });
     }
 
-    db.collection("recommended-books")
+    db.collection('recommended-books')
       .doc(uuidv4())
       .set(newBook)
       .then(() => {
-        alert("Book saved!");
+        alert('Book saved!');
       })
       .catch((error) => {
-        alert("Sorry, there was an error! Check the console.");
+        alert('Sorry, there was an error! Check the console.');
         console.log(error);
       });
   };
@@ -69,7 +69,9 @@ const CreateBook = () => {
               className="ml-4 mr-4 rounded"
               type="file"
               name="bookPhoto"
-              onChange={(e) => setBook({ ...book, thumbnail: e.target.files[0] })}
+              onChange={(e) =>
+                setBook({ ...book, thumbnail: e.target.files[0] })
+              }
             />
           </div>
         </div>
@@ -80,14 +82,14 @@ const CreateBook = () => {
             height: 500,
             menubar: false,
             plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount',
             ],
             toolbar:
-              "undo redo | formatselect | bold italic backcolor | \
+              'undo redo | formatselect | bold italic backcolor | \
               alignleft aligncenter alignright alignjustify | \
-              bullist numlist outdent indent | removeformat | help",
+              bullist numlist outdent indent | removeformat | help',
           }}
           onEditorChange={(authorDesc) => setBook({ ...book, content })}
         />
@@ -98,14 +100,14 @@ const CreateBook = () => {
             height: 500,
             menubar: false,
             plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount',
             ],
             toolbar:
-              "undo redo | formatselect | bold italic backcolor | \
+              'undo redo | formatselect | bold italic backcolor | \
               alignleft aligncenter alignright alignjustify | \
-              bullist numlist outdent indent | removeformat | help",
+              bullist numlist outdent indent | removeformat | help',
           }}
           onEditorChange={(bookDesc) => setBook({ ...book, content })}
         />

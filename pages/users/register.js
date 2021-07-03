@@ -1,27 +1,27 @@
-import { useState } from "react";
-import fire from "../../config/fire-conf";
-import { useRouter } from "next/router";
+import { useState } from 'react';
+import fire from '../../config/fire-conf';
+import { useRouter } from 'next/router';
 
 const Register = () => {
   const router = useRouter();
 
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [passConf, setPassConf] = useState("");
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [passConf, setPassConf] = useState('');
   const [notification, setNotification] = useState();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
     if (password !== passConf) {
-      setNotification("Passwords do not match.");
+      setNotification('Passwords do not match.');
 
       setTimeout(() => {
-        setNotification("");
+        setNotification('');
       }, 2000);
 
-      setPassword("");
-      setPassConf("");
+      setPassword('');
+      setPassConf('');
       return null;
     }
     fire
@@ -30,7 +30,7 @@ const Register = () => {
       .catch((err) => {
         console.log(err.code, err.message);
       });
-    router.push("/");
+    router.push('/');
   };
 
   return (

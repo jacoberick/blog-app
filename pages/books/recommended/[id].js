@@ -1,9 +1,17 @@
-import fire from "../../../config/fire-conf";
-import Head from "next/head";
-import Link from "next/link";
+import fire from '../../../config/fire-conf';
+import Head from 'next/head';
+import Link from 'next/link';
 
-const Book = ({ title, author, mugshot, authorDescription, bookDescription, cover }) => {
-  const photoCSS = "w-1/3 flex justify-center rounded-md p-4 items-center mx-14";
+const Book = ({
+  title,
+  author,
+  mugshot,
+  authorDescription,
+  bookDescription,
+  cover,
+}) => {
+  const photoCSS =
+    'w-1/3 flex justify-center rounded-md p-4 items-center mx-14';
 
   return (
     <div className="p-4">
@@ -22,7 +30,10 @@ const Book = ({ title, author, mugshot, authorDescription, bookDescription, cove
           <div id="mugshot" className={photoCSS}>
             <img className="w-60 rounded-md" src={mugshot} alt="" />
           </div>
-          <div id="bookAuthorInfo" className="w-1/3 text-lg rounded-md leading-relaxed flex flex-col justify-center">
+          <div
+            id="bookAuthorInfo"
+            className="w-1/3 text-lg rounded-md leading-relaxed flex flex-col justify-center"
+          >
             <p className="mb-6">{authorDescription}</p>
             <p>{bookDescription}</p>
           </div>
@@ -39,7 +50,7 @@ export const getServerSideProps = async ({ query }) => {
   let content = {};
   await fire
     .firestore()
-    .collection("recommended-books")
+    .collection('recommended-books')
     .doc(query.id)
     .get()
     .then((result) => {

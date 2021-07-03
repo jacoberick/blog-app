@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import fire, { db } from "../config/fire-conf";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
+import fire, { db } from '../config/fire-conf';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const Home = ({ title }) => {
   const [articles, setArticles] = useState([]);
@@ -10,8 +10,8 @@ const Home = ({ title }) => {
 
   //get, store, and order articles from firebase
   useEffect(() => {
-    db.collection("articles")
-      .orderBy("unixEpoch", "desc")
+    db.collection('articles')
+      .orderBy('unixEpoch', 'desc')
       .onSnapshot((snap) => {
         let articleList = snap.docs.map((doc) => ({
           id: doc.id,
@@ -24,8 +24,8 @@ const Home = ({ title }) => {
         setFeatured(grabFeature);
       });
 
-    db.collection("art")
-      .orderBy("unixEpoch")
+    db.collection('art')
+      .orderBy('unixEpoch')
       .onSnapshot((snap) => {
         let artCollection = snap.docs.map((doc) => ({
           id: doc.id,
@@ -36,19 +36,36 @@ const Home = ({ title }) => {
       });
   }, []);
 
-  const rectangle = <div id="rectangle" className="mb-1 h-3 w-3 bg-main rounded-sm relative"></div>;
+  const rectangle = (
+    <div
+      id="rectangle"
+      className="mb-1 h-3 w-3 bg-main rounded-sm relative"
+    ></div>
+  );
 
   return (
-    <div id="homeContent" className="h-home bg-background flex items-center justify-center">
+    <div
+      id="homeContent"
+      className="h-home bg-background flex items-center justify-center"
+    >
       <div id="homeContentInner" className="flex">
         {/* FEATURED SECTION */}
         <div id="featuredContainer" className="">
           {featured && (
-            <div id="featuredInner" className="flex items-center flex-col mx-10">
+            <div
+              id="featuredInner"
+              className="flex items-center flex-col mx-10"
+            >
               <div id="top" className="">
-                <div id="readFeaturedContainer" className="flex items-center mb-2 ">
+                <div
+                  id="readFeaturedContainer"
+                  className="flex items-center mb-2 "
+                >
                   {rectangle}
-                  <div id="rectanglePing" className="mb-1 h-3 w-3 bg-main rounded-sm animate-ping absolute"></div>
+                  <div
+                    id="rectanglePing"
+                    className="mb-1 h-3 w-3 bg-main rounded-sm animate-ping absolute"
+                  ></div>
                   <h2 className="ml-2">
                     <span className="text-red-600">READ </span>FEATURED
                   </h2>
@@ -73,8 +90,14 @@ const Home = ({ title }) => {
         </div>
 
         {/* RECENT ARTICLES SECTION */}
-        <div id="RecentArticles" className="flex flex-col justify-between mx-24">
-          <div id="readRecentArticles" className="flex items-center justify-center">
+        <div
+          id="RecentArticles"
+          className="flex flex-col justify-between mx-24"
+        >
+          <div
+            id="readRecentArticles"
+            className="flex items-center justify-center"
+          >
             {rectangle}
             <h2 className="ml-2">
               <span className="text-red-600">READ </span>RECENT ARTICLES
