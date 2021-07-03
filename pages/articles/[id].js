@@ -1,12 +1,15 @@
-import fire from "../../config/fire-conf";
-import Header from "../../components/header";
+import fire from '../../config/fire-conf';
+import Header from '../../components/header';
 
 const Article = ({ title, content, thumbnail, intro, author, date }) => {
   return (
     <div className="text-main">
       <Header />
       <div id="container" className="flex justify-center flex-col items-center">
-        <div id="top" className="flex items-center w-full justify-center border-b-2 border-main h-almostScreen">
+        <div
+          id="top"
+          className="flex items-center w-full justify-center border-b-2 border-main h-almostScreen"
+        >
           <div id="left" className="w-1/2 h-full overflow-hidden">
             <img src={thumbnail} className="w-full" />
           </div>
@@ -20,7 +23,10 @@ const Article = ({ title, content, thumbnail, intro, author, date }) => {
             <p className="font-bold m-0">By {author}</p>
             <p className="">Published {date}</p>
           </div>
-          <div className="text-xl" dangerouslySetInnerHTML={{ __html: content }}></div>
+          <div
+            className="text-xl"
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></div>
         </div>
       </div>
     </div>
@@ -32,7 +38,7 @@ export const getServerSideProps = async ({ query }) => {
 
   await fire
     .firestore()
-    .collection("articles")
+    .collection('articles')
     .doc(query.id)
     .get()
     .then((result) => {

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Editor } from "@tinymce/tinymce-react";
-import fire, { db, storage } from "../../../config/fire-conf";
-import { v4 as uuidv4 } from "uuid";
-import { DragFeature } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import fire, { db, storage } from '../../../config/fire-conf';
+import { v4 as uuidv4 } from 'uuid';
+import { DragFeature } from 'framer-motion';
 
 const CreateArticle = () => {
   const [article, setArticle] = useState({
-    title: "",
-    intro: "",
-    author: "",
-    date: "",
+    title: '',
+    intro: '',
+    author: '',
+    date: '',
     thumbnail: null,
-    content: "",
+    content: '',
     unixEpoch: null,
   });
 
@@ -31,14 +31,14 @@ const CreateArticle = () => {
         });
     }
 
-    db.collection("articles")
+    db.collection('articles')
       .doc(uuidv4())
       .set(newArticle)
       .then(() => {
-        alert("Article saved!");
+        alert('Article saved!');
       })
       .catch((error) => {
-        alert("Sorry, there was an error! Check the console.");
+        alert('Sorry, there was an error! Check the console.');
         console.log(error);
       });
   };
@@ -54,7 +54,9 @@ const CreateArticle = () => {
               className="border ml-4 mr-4 rounded"
               type="text"
               name="title"
-              onChange={(e) => setArticle({ ...article, title: e.target.value })}
+              onChange={(e) =>
+                setArticle({ ...article, title: e.target.value })
+              }
             />
           </div>
           <div>
@@ -63,7 +65,9 @@ const CreateArticle = () => {
               className="border ml-4 mr-4 rounded"
               type="text"
               name="intro"
-              onChange={(e) => setArticle({ ...article, intro: e.target.value })}
+              onChange={(e) =>
+                setArticle({ ...article, intro: e.target.value })
+              }
             />
           </div>
           <div>
@@ -72,7 +76,9 @@ const CreateArticle = () => {
               className="border ml-4 mr-4 rounded"
               type="text"
               name="author"
-              onChange={(e) => setArticle({ ...article, author: e.target.value })}
+              onChange={(e) =>
+                setArticle({ ...article, author: e.target.value })
+              }
             />
           </div>
           <div>
@@ -90,7 +96,9 @@ const CreateArticle = () => {
           <input
             type="file"
             name="thumbnail"
-            onChange={(e) => setArticle({ ...article, thumbnail: e.target.files[0] })}
+            onChange={(e) =>
+              setArticle({ ...article, thumbnail: e.target.files[0] })
+            }
             className="mb-6 ml-4"
           />
         </div>
@@ -100,14 +108,14 @@ const CreateArticle = () => {
             height: 500,
             menubar: false,
             plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount',
             ],
             toolbar:
-              "undo redo | formatselect | bold italic backcolor | \
+              'undo redo | formatselect | bold italic backcolor | \
               alignleft aligncenter alignright alignjustify | \
-              bullist numlist outdent indent | removeformat | help",
+              bullist numlist outdent indent | removeformat | help',
           }}
           onEditorChange={(content) => setArticle({ ...article, content })}
         />

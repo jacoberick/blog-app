@@ -1,11 +1,11 @@
-import { useState } from "react";
-import fire from "../../config/fire-conf";
-import { useRouter } from "next/router";
+import { useState } from 'react';
+import fire from '../../config/fire-conf';
+import { useRouter } from 'next/router';
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [notify, setNotification] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [notify, setNotification] = useState('');
   const [error, setError] = useState(false);
   const router = useRouter();
 
@@ -16,15 +16,15 @@ const Login = () => {
       .signInWithEmailAndPassword(username, password)
       .then((res) => {
         setError(false);
-        router.push("/");
+        router.push('/');
       })
       .catch((err) => {
-        setUsername("");
-        setPassword("");
+        setUsername('');
+        setPassword('');
         setError(true);
         setNotification(err.message);
         setTimeout(() => {
-          setNotification("");
+          setNotification('');
         }, 2000);
       });
   };

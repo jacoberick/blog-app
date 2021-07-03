@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Header from "../components/header.js";
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Header from '../components/header.js';
 
 const Admin = () => {
-  const [contentType, setContentType] = useState("");
+  const [contentType, setContentType] = useState('');
 
   const inputClass = `border px-6 py-2 my-4 rounded`;
   return (
@@ -14,32 +14,34 @@ const Admin = () => {
         <h2 className="my-2 text-lg">What are you creating today?</h2>
         <div>
           <button
-            onClick={() => setContentType("article")}
+            onClick={() => setContentType('article')}
             className={`transition focus:outline-none ${inputClass} ${
-              contentType === "article" ? "bg-main text-white" : null
+              contentType === 'article' ? 'bg-main text-white' : null
             }`}
           >
             Article
           </button>
           <button
-            onClick={() => setContentType("art")}
+            onClick={() => setContentType('art')}
             className={`ml-4 transition focus:outline-none ${inputClass} ${
-              contentType === "art" ? "bg-main text-white" : null
+              contentType === 'art' ? 'bg-main text-white' : null
             }`}
           >
             Art
           </button>
           <button
-            onClick={() => setContentType("recommended-book")}
+            onClick={() => setContentType('recommended-book')}
             className={`focus:outline-none transition ${inputClass} ml-4 my-6 ${
-              contentType === "recommended-book" ? "bg-main text-white" : null
+              contentType === 'recommended-book' ? 'bg-main text-white' : null
             }`}
           >
             Recommended Book
           </button>
         </div>
         <nav>
-          <Link href={{ pathname: "/admin/create", query: { type: contentType } }}>
+          <Link
+            href={{ pathname: '/admin/create', query: { type: contentType } }}
+          >
             <button
               className="border-2 border-main rounded px-4 py-2 hover:bg-main hover:text-white transition last:col-start-3"
               type="submit"

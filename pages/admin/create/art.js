@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Editor } from "@tinymce/tinymce-react";
-import fire, { db, storage } from "../../../config/fire-conf";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect } from 'react';
+import { Editor } from '@tinymce/tinymce-react';
+import fire, { db, storage } from '../../../config/fire-conf';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreateArt = () => {
   const [art, setArt] = useState({
-    title: "",
-    artist: "",
-    date: "",
-    medium: "",
-    dimensions: "",
+    title: '',
+    artist: '',
+    date: '',
+    medium: '',
+    dimensions: '',
     artPhoto: null,
     unixEpoch: null,
   });
@@ -30,14 +30,14 @@ const CreateArt = () => {
         });
     }
 
-    db.collection("art")
+    db.collection('art')
       .doc(uuidv4())
       .set(newArt)
       .then(() => {
-        alert("Art saved!");
+        alert('Art saved!');
       })
       .catch((error) => {
-        alert("Sorry, there was an error! Check the console.");
+        alert('Sorry, there was an error! Check the console.');
         console.log(error);
       });
   };
