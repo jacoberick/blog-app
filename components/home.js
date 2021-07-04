@@ -1,40 +1,12 @@
-import { useState, useEffect } from 'react';
+import { React, useContext } from 'react';
 import fire, { db } from '../config/fire-conf';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Context } from '../pages/Store';
 
-const Home = ({ title }) => {
-  const [articles, setArticles] = useState([]);
-  const [featured, setFeatured] = useState(null);
-  const [art, setArt] = useState([]);
-
-  //get, store, and order articles from firebase
-  useEffect(() => {
-    db.collection('articles')
-      .orderBy('unixEpoch', 'desc')
-      .onSnapshot((snap) => {
-        let articleList = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setArticles(articleList);
-
-        //select and set featured content
-        let grabFeature = articleList.find((a) => a.featured === true) || null;
-        setFeatured(grabFeature);
-      });
-
-    db.collection('art')
-      .orderBy('unixEpoch')
-      .onSnapshot((snap) => {
-        let artCollection = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setArt(artCollection);
-        console.log(art);
-      });
-  }, []);
+const Home = () => {
+  const { articles } = useContext(Context);
+  const { featured } = useContext(Context);
 
   const rectangle = (
     <div

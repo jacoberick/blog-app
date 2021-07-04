@@ -1,6 +1,7 @@
 import '../styles/global.css';
 import '../styles/tailwind.css';
 import { motion } from 'framer-motion';
+import Store from './Store';
 
 const MyApp = ({ Component, pageProps, router }) => {
   return (
@@ -13,7 +14,9 @@ const MyApp = ({ Component, pageProps, router }) => {
         animate: { opacity: 1, transition: { duration: 0.5 } },
       }}
     >
-      <Component {...pageProps} />
+      <Store>
+        <Component {...pageProps} />
+      </Store>
     </motion.div>
   );
 };
