@@ -38,12 +38,12 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
             </a>
           </Link>
 
-          <Link href="/art">
+          {/* <Link href="/art">
             <a className={navLink}>
               <FontAwesomeIcon icon={faPalette} className={linkSymbol} />
               Art
             </a>
-          </Link>
+          </Link> */}
 
           <Link href="/videos">
             <a className={navLink}>

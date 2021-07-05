@@ -34,7 +34,7 @@ const Store = ({ children }) => {
   }, []);
 
   return (
-    <Context.Provider value={{ articles, featured }}>
+    <Context.Provider value={{ articles, featured, art }}>
       {children}
     </Context.Provider>
   );

@@ -25,7 +25,7 @@ module.exports = {
       height: {
         header: '4.25rem',
         almostScreen: 'calc(100vh - 68px)',
-        home: '80vh ',
+        home: '75vh ',
       },
     },
   },
