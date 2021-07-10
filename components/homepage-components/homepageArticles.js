@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from '../pages/Store';
+import { Context } from '../../pages/Store';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -15,9 +15,9 @@ const homepageArticles = () => {
   );
 
   return (
-    <div id="articlesContainer" className="flex">
+    <div id="articlesContainer" className="flex 999:block">
       {/* FEATURED SECTION */}
-      <div id="featuredContainer" className="">
+      <div id="featuredContainer" className="999:mb-10">
         {featured && (
           <div id="featuredInner" className="flex items-center flex-col mx-10">
             <div id="top" className="">
@@ -38,13 +38,13 @@ const homepageArticles = () => {
                 <motion.img
                   whileHover={{ scale: 1.03 }}
                   src={featured.thumbnail}
-                  className="cursor-pointer w-80 rounded-sm border-2 border-main"
+                  className="cursor-pointer w-80 rounded-sm border-2 border-main min-h-25rem"
                 ></motion.img>
               </Link>
             </div>
             <div id="bottom" className="mt-2">
               <div id="info" className="mb-2 font-semibold">
-                <p className="m-0 text-base">
+                <p className="m-0 text-base text-center">
                   {featured.title}: {featured.intro}
                 </p>
               </div>
@@ -55,7 +55,7 @@ const homepageArticles = () => {
 
       {/* RECENT ARTICLES SECTION */}
       <div id="RecentArticles" className="flex flex-col justify-between mx-24">
-        <div id="readRecentArticles" className="flex items-center">
+        <div id="readRecentArticles" className="flex items-center 999:mb-2">
           {rectangle}
           <h2 className="ml-2">
             <span className="text-red-600">READ </span>RECENT ARTICLES
@@ -67,7 +67,7 @@ const homepageArticles = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.9 }}
               id="articleContainer"
-              className="cursor-pointer"
+              className="cursor-pointer 999:mb-10"
               key={idx}
             >
               <Link href={`articles/${a.id}`}>
@@ -75,9 +75,9 @@ const homepageArticles = () => {
                   <img
                     src={a.thumbnail}
                     alt=""
-                    className="border-2 border-main rounded-sm w-44 h-24 object-top object-cover"
+                    className="border-2 border-main rounded-sm w-44 h-24 object-top object-cover min-w-5rem"
                   ></img>
-                  <p className="ml-10 mb-0  text-base font-semibold w-72">
+                  <p className="ml-10 mb-0 text-base font-semibold w-72">
                     {a.title}: {a.intro}
                   </p>
                 </div>

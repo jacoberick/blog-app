@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from '../pages/Store';
+import { Context } from '../../pages/Store';
 
 const HomepageArt = () => {
   const { art } = useContext(Context);

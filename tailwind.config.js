@@ -2,6 +2,9 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      999: { max: '999px' },
+    },
     extend: {
       fontFamily: {
         header: ['Josefin Sans', 'sans-serif'],
@@ -26,6 +29,10 @@ module.exports = {
         header: '4.25rem',
         almostScreen: 'calc(100vh - 68px)',
         home: '75vh ',
+      },
+      minWidth: {
+        '5rem': '5rem',
+        '25rem': '25rem',
       },
     },
   },

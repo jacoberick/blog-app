@@ -1,22 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronDown,
-  faBook,
-  faEnvelope,
-  faVideo,
-  faPalette,
-} from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
-
-const navLink =
-  'flex items-center mr-8 hover:text-highlight transition duration-175';
-const dropDownLink =
-  'text-main p-2 hover:bg-grey rounded transition duration-150';
-const linkSymbol = 'text-sm mr-2';
+import DesktopNav from './header-components/DesktopNav';
+import MobileNav from './header-components/MobileNav';
 
 const Header = ({ notification, loggedIn, handleLogout }) => {
+  const [screenWidth, setScreenWidth] = useState(undefined);
+
+  useEffect(() => {
+    // handle screen resize function
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    // resize event listener
+    window.addEventListener('resize', handleResize);
+    //call handleResize to set initial state
+    handleResize();
+    //remove on onMount
+    return () => removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div id="header" className="text-sm font-body text-white bg-main">
       <div
@@ -30,65 +33,7 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
             </h1>
           </Link>
         </div>
-        <nav id="navLinks" className="flex items-center">
-          <Link href="/articles">
-            <a className={navLink}>
-              <FontAwesomeIcon icon={faNewspaper} className={linkSymbol} />
-              Articles
-            </a>
-          </Link>
-
-          {/* <Link href="/art">
-            <a className={navLink}>
-              <FontAwesomeIcon icon={faPalette} className={linkSymbol} />
-              Art
-            </a>
-          </Link> */}
-
-          <Link href="/videos">
-            <a className={navLink}>
-              <FontAwesomeIcon icon={faVideo} className={linkSymbol} />
-              Videos
-            </a>
-          </Link>
-
-          <div
-            id="BookNavLinkContainer"
-            className="group relative cursor-pointer"
-          >
-            <a
-              id="booksLink"
-              className={`${navLink} group-hover:text-highlight group-hover:h-header transition duration-175`}
-            >
-              <FontAwesomeIcon icon={faBook} className={linkSymbol} />
-              Books
-              <FontAwesomeIcon icon={faChevronDown} className="h-2 w-2 ml-1" />
-            </a>
-            <ul
-              id="subMenu"
-              className="bg-background hidden w-44 p-2 absolute group-hover:flex justify-center items-center flex-col rounded shadow-dropDown"
-            >
-              <li className={dropDownLink}>
-                <Link href="/books/recommended">
-                  <a>Recommended Books</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <Link href="/contact">
-            <a className={navLink}>
-              <FontAwesomeIcon icon={faEnvelope} className={linkSymbol} />
-              Contact
-            </a>
-          </Link>
-
-          {loggedIn && (
-            <Link href="/admin">
-              <a className={navLink}>Admin</a>
-            </Link>
-          )}
-        </nav>
+        {screenWidth > 900 ? <DesktopNav loggedIn={loggedIn} /> : <MobileNav />}
       </div>
     </div>
   );

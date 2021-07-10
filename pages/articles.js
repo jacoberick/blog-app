@@ -1,10 +1,10 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
-import { useContext } from "react";
-import fire, { db } from "../config/fire-conf";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Context } from "../pages/Store";
+import Header from '../components/header';
+import Footer from '../components/footer';
+import { useContext } from 'react';
+import fire, { db } from '../config/fire-conf';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Context } from '../pages/Store';
 
 const Articles = () => {
   const { articles } = useContext(Context);
@@ -12,8 +12,13 @@ const Articles = () => {
   return (
     <div>
       <Header />
-      <div id="articlesMaster" className="h-home flex mt-4 flex-col items-center">
-        <h1 className="font-header text-5xl mt-10 mb-10 text-main">All Articles</h1>
+      <div
+        id="articlesMaster"
+        className="h-home flex mt-4 flex-col items-center"
+      >
+        <h1 className="font-header text-5xl mt-10 mb-10 text-main">
+          All Articles
+        </h1>
         <div id="articlesContainer" className="flex flex-wrap justify-center">
           {articles &&
             articles.map((a, idx) => (
@@ -25,13 +30,13 @@ const Articles = () => {
                 key={idx}
               >
                 <Link href={`articles/${a.id}`}>
-                  <div className="flex items-center">
+                  <div className="flex flex-col items-center flex-wrap mx-8">
                     <img
                       src={a.thumbnail}
                       alt=""
-                      className="border-2 border-main rounded-sm w-44 h-24 object-top object-cover"
+                      className="mb-2 border-2 border-main rounded-sm w-44 h-24 object-top object-cover"
                     ></img>
-                    <p className="ml-10 mb-0  text-base font-semibold w-72">
+                    <p className="m-0 text-base font-semibold w-72 text-center">
                       {a.title}: {a.intro}
                     </p>
                   </div>

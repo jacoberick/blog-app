@@ -11,7 +11,7 @@ const Article = ({ title, content, thumbnail, intro, author, date }) => {
           className="flex items-center w-full justify-center border-b-2 border-main h-almostScreen"
         >
           <div id="left" className="w-1/2 h-full overflow-hidden">
-            <img src={thumbnail} className="w-full" />
+            <img src={thumbnail} className="object-cover h-full w-full" />
           </div>
           <div id="right" className="w-1/2">
             <h2 className="text-center font-header text-5xl mb-4">{title}</h2>
