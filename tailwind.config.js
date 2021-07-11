@@ -3,7 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      999: { max: '999px' },
+      m999: { max: '999px' },
+      m850: { max: '850px' },
+      m775: { max: '775px' },
+      m475: { max: '475px' },
+      m400: { max: '400px' },
+      m300: { max: '300px' },
     },
     extend: {
       fontFamily: {
@@ -33,6 +38,9 @@ module.exports = {
       minWidth: {
         '5rem': '5rem',
         '25rem': '25rem',
+      },
+      maxWidth: {
+        '15rem': '15rem',
       },
     },
   },

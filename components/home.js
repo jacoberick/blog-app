@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div
       id="homeContainer"
-      className="flex flex-col items-center m-10 h-home 999:h-auto"
+      className="flex flex-col items-center m-10 h-home m999:h-auto"
     >
       <HomepageArticles />
     </div>
