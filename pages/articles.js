@@ -14,7 +14,7 @@ const Articles = () => {
       <Header />
       <div
         id="articlesMaster"
-        className="h-home flex mt-4 flex-col items-center"
+        className="h-home flex mt-4 flex-col items-center mb-3"
       >
         <h1 className="font-header text-5xl mt-10 mb-10 text-main">
           All Articles

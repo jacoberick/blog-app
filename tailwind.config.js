@@ -3,6 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
+      mh858: { raw: '(min-height: 858px)' },
       m999: { max: '999px' },
       m850: { max: '850px' },
       m775: { max: '775px' },
