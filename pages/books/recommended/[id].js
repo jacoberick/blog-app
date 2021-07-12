@@ -11,28 +11,35 @@ const Book = ({
   cover,
 }) => {
   const photoCSS =
-    'w-1/3 flex justify-center rounded-md p-4 items-center mx-14';
+    'w-1/3 flex justify-center rounded-md p-4 items-start mx-14 m1200:w-1/2';
 
   return (
     <div className="p-4">
       <Head>
-        <title>{`${title}`}</title>
+        <title>{`Gulag Anthem | ${title}`}</title>
       </Head>
       <Link href="/books/recommended">
-        <p className="hover:underline m-0 cursor-pointer">Back</p>
+        <p className="hover:underline m-0 cursor-pointer m775:mb-4">Back</p>
       </Link>
       <div id="bookDetailInner" className="pb-10 text-main">
         <div id="topSection" className="flex items-center flex-col">
-          <h1 className="font-bookTitle text-9xl uppercase">{title}</h1>
-          <h2 className="mt-12 mb-16 text-center text-4xl italic">{author}</h2>
+          <h1 className="font-bookTitle text-9xl uppercase text-center m775:text-7xl m400:text-5xl">
+            {title}
+          </h1>
+          <h2 className="mt-12 m400:mt-6 mb-16 text-center text-4xl italic m1200:mb-8 m400:text-2xl m400:mb-0">
+            {author}
+          </h2>
         </div>
-        <div id="bottomSection" className="mx-4 flex justify-around text-text">
+        <div
+          id="bottomSection"
+          className="mx-4 flex justify-around text-text m1200:flex-col m1200:items-center"
+        >
           <div id="mugshot" className={photoCSS}>
-            <img className="w-60 rounded-md" src={mugshot} alt="" />
+            <img className="w-60 rounded-md m1200:mb-6" src={mugshot} alt="" />
           </div>
           <div
             id="bookAuthorInfo"
-            className="w-1/3 text-lg rounded-md leading-relaxed flex flex-col justify-center"
+            className="w-1/3 text-lg rounded-md leading-relaxed flex flex-col justify-center m1200:min-w-full"
           >
             <p className="mb-6">{authorDescription}</p>
             <p>{bookDescription}</p>

@@ -30,7 +30,7 @@ const Recommended = () => {
       </Head>
       <Header />
       <div id="recommendedInner">
-        <h1 className="font-header text-5xl text-center mt-10 mb-10 text-main">
+        <h1 className="font-header text-5xl text-center mt-10 mb-10 text-main m775:text-4xl m300:text-3xl">
           RECOMMENDED BOOKS
         </h1>
         <motion.div
@@ -41,7 +41,7 @@ const Recommended = () => {
             visible: { opacity: 1, transition: { delay: 1 } },
           }}
           id="books"
-          className={`flex justify-center mx-auto flex-wrap max-w-4xl mb-28`}
+          className={`flex justify-center mx-auto flex-wrap max-w-4xl mb-28 m775:mb-0`}
         >
           {recBooks.map((b) => (
             <motion.div

@@ -14,9 +14,9 @@ const Articles = () => {
       <Header />
       <div
         id="articlesMaster"
-        className="h-home flex mt-4 flex-col items-center mb-3"
+        className="flex mt-4 flex-col items-center mb-3 h-home m850:h-auto"
       >
-        <h1 className="font-header text-5xl mt-10 mb-10 text-main">
+        <h1 className="font-header text-5xl mt-10 mb-10 text-main border-b-2 border-main m475:text-4xl">
           All Articles
         </h1>
         <div id="articlesContainer" className="flex flex-wrap justify-center">

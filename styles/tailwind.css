@@ -10,7 +10,6 @@
   h6 {
     @apply mb-10;
     @apply font-quote;
-    @apply text-xl;
     @apply leading-loose;
   }
   h2 {

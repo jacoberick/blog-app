@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     screens: {
       mh858: { raw: '(min-height: 858px)' },
+      m1200: { max: '1200px' },
       m999: { max: '999px' },
       m850: { max: '850px' },
       m775: { max: '775px' },
+      m550: { max: '550px' },
       m475: { max: '475px' },
       m400: { max: '400px' },
       m300: { max: '300px' },
@@ -42,6 +44,7 @@ module.exports = {
       },
       maxWidth: {
         '15rem': '15rem',
+        '60rem': '60rem',
       },
     },
   },
