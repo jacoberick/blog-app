@@ -9,7 +9,7 @@ const Admin = () => {
   return (
     <div>
       <Header />
-      <main className="p-2 flex flex-col items-center justify-center h-almostScreen">
+      <main className="p-2 flex flex-col items-center justify-center">
         <h1 className="font-header text-4xl">Hello, Jacob.</h1>
         <h2 className="my-2 text-lg">What are you creating today?</h2>
         <div>

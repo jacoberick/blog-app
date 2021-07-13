@@ -1,21 +1,20 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronDown,
-  faBook,
-  faEnvelope,
-  faVideo,
-  faPalette,
-} from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
-import Link from 'next/link';
-
 const navLink =
   'flex items-center mr-8 hover:text-highlight transition duration-175';
 const dropDownLink =
   'text-main p-2 hover:bg-grey rounded transition duration-150';
-const linkSymbol = 'text-sm mr-2';
 
-const DesktopNav = ({ loggedIn }) => {
+const DesktopNav = ({
+  loggedIn,
+  Link,
+  FontAwesomeIcon,
+  faNewspaper,
+  faVideo,
+  faBook,
+  faChevronDown,
+  faEnvelope,
+  faPalette,
+  linkSymbol,
+}) => {
   return (
     <div>
       <nav id="navLinks" className="flex items-center">

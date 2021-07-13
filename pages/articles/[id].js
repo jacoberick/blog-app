@@ -8,7 +8,7 @@ const Article = ({ title, content, thumbnail, intro, author, date }) => {
       <div id="container" className="flex justify-center flex-col items-center">
         <div
           id="top"
-          className="flex items-center w-full justify-center border-b-2 border-main h-almostScreen m775:flex-col m775:justify-start"
+          className="flex items-center w-full justify-center border-b-2 border-main h-screenMinusHeader m775:flex-col m775:justify-start"
         >
           <div
             id="left"

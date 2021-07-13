@@ -30,7 +30,7 @@ const Index = () => {
   };
 
   return (
-    <div id="indexContainer" className="h-screen">
+    <div id="indexContainer" className="flex flex-col min-h-screen">
       <Head>
         <title>Gulag Anthem | Home</title>
       </Head>

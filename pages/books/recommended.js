@@ -24,12 +24,15 @@ const Recommended = () => {
   }, []);
 
   return (
-    <div id="recommendedDiv" className="bg-background h-screen">
+    <div
+      id="recommendedDiv"
+      className="bg-background flex flex-col min-h-screen"
+    >
       <Head>
         <title>Gulag Anthem | Recommended Books</title>
       </Head>
       <Header />
-      <div id="recommendedInner">
+      <div id="recommendedInner" className="">
         <h1 className="font-header text-5xl text-center mt-10 mb-10 text-main m775:text-4xl m300:text-3xl">
           RECOMMENDED BOOKS
         </h1>

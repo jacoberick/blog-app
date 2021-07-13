@@ -1,7 +1,6 @@
 import Header from '../components/header';
 import Footer from '../components/footer';
 import { useContext } from 'react';
-import fire, { db } from '../config/fire-conf';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Context } from '../pages/Store';
@@ -10,11 +9,11 @@ const Articles = () => {
   const { articles } = useContext(Context);
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <div
         id="articlesMaster"
-        className="flex mt-4 flex-col items-center mb-3 h-home m850:h-auto"
+        className="flex mt-4 flex-col items-center mb-3 "
       >
         <h1 className="font-header text-5xl mt-10 mb-10 text-main border-b-2 border-main m475:text-4xl">
           All Articles

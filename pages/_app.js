@@ -6,6 +6,7 @@ import Store from './Store';
 const MyApp = ({ Component, pageProps, router }) => {
   return (
     <motion.div
+      className="relative overflow-x-hidden"
       key={router.route}
       initial="init"
       animate="animate"

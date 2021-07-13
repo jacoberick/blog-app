@@ -3,9 +3,9 @@ import Footer from '../components/footer';
 
 const Videos = () => {
   return (
-    <div className="h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="h-96 flex items-center flex-col py-72 my-10 text-main">
+      <div className="flex items-center flex-col py-72 my-10 text-main">
         <h1 className="font-bookTitle text-lg">No content at this time...</h1>
       </div>
       <Footer />

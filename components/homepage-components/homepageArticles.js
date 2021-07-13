@@ -16,6 +16,7 @@ const homepageArticles = () => {
 
   return (
     <div id="articlesContainer" className="flex m850:block">
+      <div id="articlesContainerInner"></div>
       {/* FEATURED SECTION */}
       <div id="featuredContainer" className="">
         {featured && (
@@ -103,7 +104,7 @@ const homepageArticles = () => {
           id="buttonContainer"
           className="flex justify-end m999:justify-center m999:mt-2 m850:justify-end m300:justify-center"
         >
-          <button className="border-2 border-main p-2 rounded hover:text-white hover:bg-main transition duration-150">
+          <button className="border-2 border-main p-2 rounded hover:text-white hover:bg-main transition duration-150 focus:outline-none">
             <Link href="/articles">
               <h2 className="text-sm mt-1">VIEW ALL ARTICLES</h2>
             </Link>

@@ -10,7 +10,7 @@ const hoverHighlight = 'hover:text-highlight transition duration-200';
 
 const Footer = () => {
   return (
-    <footer className="font-body bg-main flex text-white px-24 py-4 justify-between items-center m775:flex-col-reverse m475:px-0 w-full mh858:fixed mh858:bottom-0 mh858:left-0">
+    <footer className="font-body bg-main flex text-white px-24 py-4 justify-between items-center m775:flex-col-reverse m475:px-0 mt-auto">
       <div
         id="emailSubSection"
         className="m775:flex m775:flex-col m775:items-center"

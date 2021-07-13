@@ -30,12 +30,12 @@ module.exports = {
         grey: '#b8b8b8',
       },
       boxShadow: {
-        neumorphic: '-7px -7px 10px #cecece, 7px 7px 10px #c0cad7',
         dropDown: '2px 2px 5px rgba(46, 64, 87, 0.81)',
+        burgerMenu: '-5px 0 5px rgba(46, 64, 87, 0.81)',
       },
       height: {
         header: '4.25rem',
-        almostScreen: 'calc(100vh - 68px)',
+        screenMinusHeader: 'calc(100vh - 68px)',
         home: '75vh ',
       },
       minWidth: {
@@ -45,6 +45,7 @@ module.exports = {
       maxWidth: {
         '15rem': '15rem',
         '60rem': '60rem',
+        '100rem': '100rem',
       },
     },
   },

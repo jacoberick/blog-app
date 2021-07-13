@@ -3,11 +3,11 @@ import Footer from '../components/footer';
 
 const Contact = () => {
   return (
-    <div className="h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <div
         id="ContactSection"
-        className="h-96 flex items-center justify-center flex-col py-72 my-10 text-main"
+        className="flex items-center justify-center flex-col py-72 my-10 text-main"
       >
         <h1 className="font-header text-2xl mb-10 m850:text-lg m550:text-base m550:mb-5">
           FOR ALL INQUIRIES
