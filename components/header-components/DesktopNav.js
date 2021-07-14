@@ -1,10 +1,12 @@
+import { useContext } from 'react';
+import { Context } from '../../pages/Store';
+
 const navLink =
   'flex items-center mr-8 hover:text-highlight transition duration-175';
 const dropDownLink =
   'text-main p-2 hover:bg-grey rounded transition duration-150';
 
 const DesktopNav = ({
-  loggedIn,
   Link,
   FontAwesomeIcon,
   faNewspaper,
@@ -14,7 +16,10 @@ const DesktopNav = ({
   faEnvelope,
   faPalette,
   linkSymbol,
+  handleLogout,
 }) => {
+  const { loggedIn } = useContext(Context);
+
   return (
     <div>
       <nav id="navLinks" className="flex items-center">

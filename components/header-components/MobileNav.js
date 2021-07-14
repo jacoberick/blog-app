@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../../pages/Store';
 
 const MobileHeader = ({
-  loggedIn,
   Link,
   FontAwesomeIcon,
   faNewspaper,
@@ -14,6 +14,7 @@ const MobileHeader = ({
   //State
   const [menuActive, setMenuActive] = useState(false);
   const [booksActive, setBooksActive] = useState(false);
+  const { loggedIn } = useContext(Context);
 
   //toggled classes based on state
   const burgerLines = 'w-10 h-1 bg-white rounded-sm transform transition';

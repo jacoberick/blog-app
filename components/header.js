@@ -11,11 +11,25 @@ import {
   faPalette,
 } from '@fortawesome/free-solid-svg-icons';
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
+import fire from '../config/fire-conf';
 
 const linkSymbol = 'text-sm mr-2';
 
-const Header = ({ notification, loggedIn, handleLogout }) => {
+const Header = () => {
   const [screenWidth, setScreenWidth] = useState(undefined);
+  const [notification, setNotification] = useState('');
+
+  const handleLogout = () => {
+    fire
+      .auth()
+      .signOut()
+      .then(() => {
+        setNotification('Logged out');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000);
+      });
+  };
 
   useEffect(() => {
     // handle screen resize function
@@ -50,7 +64,6 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
         <div>
           {screenWidth > 900 ? (
             <DesktopNav
-              loggedIn={loggedIn}
               Link={Link}
               FontAwesomeIcon={FontAwesomeIcon}
               faNewspaper={faNewspaper}
@@ -60,10 +73,10 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
               faEnvelope={faEnvelope}
               faPalette={faPalette}
               linkSymbol={linkSymbol}
+              handleLogout={handleLogout}
             />
           ) : (
             <MobileNav
-              loggedIn={loggedIn}
               Link={Link}
               FontAwesomeIcon={FontAwesomeIcon}
               faNewspaper={faNewspaper}
@@ -72,6 +85,7 @@ const Header = ({ notification, loggedIn, handleLogout }) => {
               faChevronDown={faChevronDown}
               faEnvelope={faEnvelope}
               faPalette={faPalette}
+              handleLogout={handleLogout}
             />
           )}
         </div>

@@ -9,25 +9,25 @@ const Index = () => {
   const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
-  fire.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  });
+  // fire.auth().onAuthStateChanged((user) => {
+  //   if (user) {
+  //     setLoggedIn(true);
+  //   } else {
+  //     setLoggedIn(false);
+  //   }
+  // });
 
-  const handleLogout = () => {
-    fire
-      .auth()
-      .signOut()
-      .then(() => {
-        setNotification('Logged out');
-        setTimeout(() => {
-          setNotification('');
-        }, 2000);
-      });
-  };
+  // const handleLogout = () => {
+  //   fire
+  //     .auth()
+  //     .signOut()
+  //     .then(() => {
+  //       setNotification('Logged out');
+  //       setTimeout(() => {
+  //         setNotification('');
+  //       }, 2000);
+  //     });
+  // };
 
   return (
     <div id="indexContainer" className="flex flex-col min-h-screen">
@@ -35,9 +35,9 @@ const Index = () => {
         <title>Gulag Anthem | Home</title>
       </Head>
       <Header
-        notification={notification}
-        loggedIn={loggedIn}
-        handleLogout={handleLogout}
+      // notification={notification}
+      // loggedIn={loggedIn}
+      // handleLogout={handleLogout}
       />
       <Home />
       <Footer />
