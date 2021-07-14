@@ -10,6 +10,7 @@ const MobileHeader = ({
   faChevronDown,
   faEnvelope,
   faPalette,
+  handleLogout,
 }) => {
   //State
   const [menuActive, setMenuActive] = useState(false);
@@ -104,14 +105,12 @@ const MobileHeader = ({
             </Link>
 
             {loggedIn && (
-              <div>
+              <div className="flex flex-col items-start">
                 <Link href="/admin">
-                  <a className={''}>Admin</a>
+                  <a className={textStyle}>Admin</a>
                 </Link>
-                <button>
-                  <a className={''} onClick={handleLogout}>
-                    Logout
-                  </a>
+                <button className={textStyle}>
+                  <a onClick={handleLogout}>Logout</a>
                 </button>
               </div>
             )}

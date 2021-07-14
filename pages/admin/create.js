@@ -6,7 +6,7 @@ import Header from '../../components/header.js';
 
 const Create = (props) => {
   const [contentType] = useState(props.query.type);
-  console.log(props);
+
   return (
     <div>
       <Header />

@@ -7,7 +7,7 @@ const Admin = () => {
 
   const inputClass = `border px-6 py-2 my-4 rounded`;
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="p-2 flex flex-col items-center justify-center">
         <h1 className="font-header text-4xl">Hello, Jacob.</h1>

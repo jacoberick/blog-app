@@ -7,7 +7,6 @@ const Store = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [featured, setFeatured] = useState(null);
   const [art, setArt] = useState([]);
-  const [notification, setNotification] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
   //User log in/out
@@ -18,18 +17,6 @@ const Store = ({ children }) => {
       setLoggedIn(false);
     }
   });
-
-  const handleLogout = () => {
-    fire
-      .auth()
-      .signOut()
-      .then(() => {
-        setNotification('Logged out');
-        setTimeout(() => {
-          setNotification('');
-        }, 2000);
-      });
-  };
 
   useEffect(() => {
     db.collection('articles')
