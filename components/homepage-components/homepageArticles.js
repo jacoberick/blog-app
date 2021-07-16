@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const homepageArticles = () => {
-  const { articles } = useContext(Context);
-  const { featured } = useContext(Context);
+  const { articles, featured } = useContext(Context);
 
   const rectangle = (
     <div

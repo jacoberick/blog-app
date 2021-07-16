@@ -7,7 +7,7 @@ const Contact = () => {
       <Header />
       <div
         id="ContactSection"
-        className="flex items-center justify-center flex-col py-72 my-10 text-main"
+        className="flex items-center flex-col text-main h-full my-auto"
       >
         <h1 className="font-header text-2xl mb-10 m850:text-lg m550:text-base m550:mb-5">
           FOR ALL INQUIRIES
