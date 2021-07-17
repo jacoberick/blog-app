@@ -17,62 +17,60 @@ const ArticleShell = ({ operation, article, setArticle, handleSubmit }) => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <div id="top" className="flex justify-center">
           <div className="mb-6">
-            TITLE
-            <input
-              defaultValue={article && article.title ? article.title : ''}
-              className="border ml-4 mr-4 rounded"
-              type="text"
-              name="title"
-              onChange={(e) =>
-                setArticle({ ...article, title: e.target.value })
-              }
-            />
+            <label>
+              TITLE
+              <input
+                defaultValue={article && article.title ? article.title : ''}
+                className="border ml-4 mr-4 rounded"
+                type="text"
+                name="title"
+                onChange={(e) =>
+                  setArticle({ ...article, title: e.target.value })
+                }
+              />
+            </label>
           </div>
           <div>
-            INTRO
-            <input
-              defaultValue={article && article.intro ? article.intro : ''}
-              className="border ml-4 mr-4 rounded"
-              type="text"
-              name="intro"
-              onChange={(e) =>
-                setArticle({ ...article, intro: e.target.value })
-              }
-            />
+            <label>
+              INTRO{' '}
+              <input
+                defaultValue={article && article.intro ? article.intro : ''}
+                className="border ml-4 mr-4 rounded"
+                type="text"
+                name="intro"
+                onChange={(e) =>
+                  setArticle({ ...article, intro: e.target.value })
+                }
+              />
+            </label>
           </div>
           <div>
-            AUTHOR
-            <input
-              value={article && article.author ? article.author : ''}
-              className="border ml-4 mr-4 rounded"
-              type="text"
-              name="author"
-              onChange={(e) =>
-                setArticle({ ...article, author: e.target.value })
-              }
-            />
-          </div>
-          <div>
-            DATE
-            <input
-              defaultValue={article && article.date ? article.date : ''}
-              className="border ml-4 rounded"
-              type="text"
-              name="date"
-              onChange={(e) => setArticle({ ...article, date: e.target.value })}
-            />
+            <label>
+              AUTHOR
+              <input
+                value={article && article.author ? article.author : ''}
+                className="border ml-4 mr-4 rounded"
+                type="text"
+                name="author"
+                onChange={(e) =>
+                  setArticle({ ...article, author: e.target.value })
+                }
+              />
+            </label>
           </div>
         </div>
         <div className="flex justify-center">
-          THUMBNAIL
-          <input
-            type="file"
-            name="thumbnail"
-            onChange={(e) =>
-              setArticle({ ...article, thumbnail: e.target.files[0] })
-            }
-            className="mb-6 ml-4"
-          />
+          <label>
+            THUMBNAIL
+            <input
+              type="file"
+              name="thumbnail"
+              onChange={(e) =>
+                setArticle({ ...article, thumbnail: e.target.files[0] })
+              }
+              className="mb-6 ml-4"
+            />
+          </label>
         </div>
         {/* Conditional render based on renderMCE that takes place in useEffect */}
         {renderMCE && (

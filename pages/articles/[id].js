@@ -4,11 +4,20 @@ import Link from 'next/link';
 import { useContext } from 'react';
 import { Context } from '../Store';
 import { useRouter } from 'next/router';
+import dayjs from 'dayjs';
 
 const buttonStyle =
   'w-32 border-2 border-main p-2 rounded hover:text-white transition duration-150 focus:outline-none';
 
-const Article = ({ id, title, content, thumbnail, intro, author, date }) => {
+const Article = ({
+  id,
+  title,
+  content,
+  thumbnail,
+  intro,
+  author,
+  createdAt,
+}) => {
   let { loggedIn } = useContext(Context);
   const router = useRouter();
 
@@ -67,10 +76,11 @@ const Article = ({ id, title, content, thumbnail, intro, author, date }) => {
 
           <div id="info" className="w-full mt-12 m775:text-sm">
             <p className="font-bold m-0">By {author}</p>
-            <p>Published {date}</p>
+            <p>Published {dayjs(createdAt).format('MM.DD.YYYY')}</p>
           </div>
           <div
-            className="text-xl m775:text-lg m550:text-base"
+            id="articleContent"
+            className="text-xl m775:text-lg m550:text-base mb-5"
             dangerouslySetInnerHTML={{ __html: content }}
           ></div>
         </div>
@@ -97,9 +107,9 @@ export const getServerSideProps = async ({ query }) => {
       title: content.title,
       intro: content.intro,
       author: content.author,
-      date: content.date,
       thumbnail: content.thumbnail,
       content: content.content,
+      createdAt: content.createdAt,
     },
   };
 };

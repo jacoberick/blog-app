@@ -22,16 +22,16 @@ module.exports = {
         featured: ['Castoro', 'serif'],
       },
       colors: {
-        main: '#2E4057',
+        main: '#243345',
         white: '#f9f9f9',
-        highlight: '#DA3A2F',
+        highlight: '#dc2626',
         background: '#fefefe',
         text: '#243345',
         grey: '#b8b8b8',
       },
       boxShadow: {
         dropDown: '2px 2px 5px rgba(46, 64, 87, 0.81)',
-        burgerMenu: '-5px 0 5px rgba(46, 64, 87, 0.81)',
+        burgerMenu: '-5px 0 5px #0e3036',
       },
       height: {
         header: '4.25rem',

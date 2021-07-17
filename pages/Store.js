@@ -20,7 +20,7 @@ const Store = ({ children }) => {
 
   useEffect(() => {
     db.collection('articles')
-      .orderBy('unixEpoch', 'desc')
+      .orderBy('createdAt', 'desc')
       .onSnapshot((snap) => {
         let articleList = snap.docs.map((doc) => ({
           id: doc.id,
@@ -31,20 +31,10 @@ const Store = ({ children }) => {
         let grabFeature = articleList.find((a) => a.featured === true) || null;
         setFeatured(grabFeature);
       });
-
-    db.collection('art')
-      .orderBy('unixEpoch')
-      .onSnapshot((snap) => {
-        let artCollection = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setArt(artCollection);
-      });
   }, []);
 
   return (
-    <Context.Provider value={{ articles, featured, art, loggedIn }}>
+    <Context.Provider value={{ articles, featured, loggedIn }}>
       {children}
     </Context.Provider>
   );

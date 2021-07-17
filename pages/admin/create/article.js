@@ -3,21 +3,22 @@ import { Editor } from '@tinymce/tinymce-react';
 import { db, storage } from '../../../config/fire-conf';
 import { v4 as uuidv4 } from 'uuid';
 import ArticleShell from '../ArticleShell';
+import { useRouter } from 'next/router';
+import dayjs from 'dayjs';
 
 const CreateArticle = () => {
+  const router = useRouter();
   const [article, setArticle] = useState({
     title: '',
     intro: '',
     author: '',
-    date: '',
     thumbnail: null,
     content: '',
-    unixEpoch: null,
   });
 
   const handleCreateSubmit = async (e) => {
     e.preventDefault();
-    let newArticle = { ...article, createdAt: Date.now() };
+    let newArticle = { ...article, createdAt: dayjs().format() };
 
     if (article.thumbnail) {
       await storage
@@ -35,6 +36,7 @@ const CreateArticle = () => {
       .set(newArticle)
       .then(() => {
         alert('Article saved!');
+        router.push('/');
       })
       .catch((error) => {
         alert('Sorry, there was an error! Check the console.');

@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../../Store';
 import Header from '../../../../components/header';
 import { db, storage } from '../../../../config/fire-conf';
-import { v4 as uuidv4 } from 'uuid';
 import dayjs from 'dayjs';
 
 const UpdateArticle = () => {
