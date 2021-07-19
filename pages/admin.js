@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Header from '../components/header.js';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import Header from '../components/header.js'
 
 const Admin = () => {
-  const [contentType, setContentType] = useState('');
+  const [contentType, setContentType] = useState('')
 
-  const inputClass = `border px-6 py-2 my-4 rounded`;
+  const inputClass = `border px-6 py-2 my-4 rounded`
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -14,12 +14,12 @@ const Admin = () => {
         <h2 className="my-2 text-lg">What are you creating today?</h2>
         <div>
           <button
-            onClick={() => setContentType('article')}
+            onClick={() => setContentType('essay')}
             className={`transition focus:outline-none ${inputClass} ${
-              contentType === 'article' ? 'bg-main text-white' : null
+              contentType === 'essay' ? 'bg-main text-white' : null
             }`}
           >
-            Article
+            Essay
           </button>
           <button
             onClick={() => setContentType('art')}
@@ -52,7 +52,7 @@ const Admin = () => {
         </nav>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Admin;
+export default Admin

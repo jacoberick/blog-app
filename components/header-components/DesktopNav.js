@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import { Context } from '../../pages/Store';
+import { useContext } from 'react'
+import { Context } from '../../pages/Store'
 
 const navLink =
-  'flex items-center mr-8 hover:text-highlight transition duration-175';
+  'flex items-center mr-8 hover:text-highlight transition duration-175'
 const dropDownLink =
-  'text-main p-2 hover:bg-grey rounded transition duration-150';
+  'text-main p-2 hover:bg-grey rounded transition duration-150'
 
 const DesktopNav = ({
   Link,
@@ -18,15 +18,15 @@ const DesktopNav = ({
   linkSymbol,
   handleLogout,
 }) => {
-  const { loggedIn } = useContext(Context);
+  const { loggedIn } = useContext(Context)
 
   return (
     <div>
       <nav id="navLinks" className="flex items-center">
-        <Link href="/articles">
+        <Link href="/essays">
           <a className={navLink}>
             <FontAwesomeIcon icon={faNewspaper} className={linkSymbol} />
-            Articles
+            Essays
           </a>
         </Link>
 
@@ -89,7 +89,7 @@ const DesktopNav = ({
         )}
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default DesktopNav;
+export default DesktopNav

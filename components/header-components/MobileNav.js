@@ -1,5 +1,5 @@
-import { useState, useContext } from 'react';
-import { Context } from '../../pages/Store';
+import { useState, useContext } from 'react'
+import { Context } from '../../pages/Store'
 
 const MobileHeader = ({
   Link,
@@ -13,30 +13,30 @@ const MobileHeader = ({
   handleLogout,
 }) => {
   //State
-  const [menuActive, setMenuActive] = useState(false);
-  const [booksActive, setBooksActive] = useState(false);
-  const { loggedIn } = useContext(Context);
+  const [menuActive, setMenuActive] = useState(false)
+  const [booksActive, setBooksActive] = useState(false)
+  const { loggedIn } = useContext(Context)
 
   //toggled classes based on state
-  const burgerLines = 'w-10 h-1 bg-white rounded-sm transform transition';
-  const slideLine = menuActive ? 'translate-x-2' : '';
-  const rotateLines = menuActive ? 'rotate-180' : '';
-  const displayBookDrop = booksActive ? 'flex mb-10 ml-10' : 'hidden';
-  const symbolStyle = 'text-2xl mr-5';
+  const burgerLines = 'w-10 h-1 bg-white rounded-sm transform transition'
+  const slideLine = menuActive ? 'translate-x-2' : ''
+  const rotateLines = menuActive ? 'rotate-180' : ''
+  const displayBookDrop = booksActive ? 'flex mb-10 ml-10' : 'hidden'
+  const symbolStyle = 'text-2xl mr-5'
   const textStyle =
-    'text-3xl flex items-center mb-10 m475:text-2xl m400:text-lg';
+    'text-3xl flex items-center mb-10 m475:text-2xl m400:text-lg'
   const dropDownToggle = menuActive
     ? 'translate-x-0 shadow-burgerMenu'
-    : 'translate-x-full';
+    : 'translate-x-full'
 
   //Handler functions
   const handleBurgerToggle = () => {
-    !menuActive ? setMenuActive(true) : setMenuActive(false);
-  };
+    !menuActive ? setMenuActive(true) : setMenuActive(false)
+  }
 
   const handleBookToggle = () => {
-    !booksActive ? setBooksActive(true) : setBooksActive(false);
-  };
+    !booksActive ? setBooksActive(true) : setBooksActive(false)
+  }
 
   return (
     <div className="">
@@ -59,10 +59,10 @@ const MobileHeader = ({
           className={`${dropDownToggle} transition transform absolute right-0 bg-main w-3/4 z-10 h-screenMinusHeader`}
         >
           <div id="linkContainer" className="ml-20 m475:ml-10 m400:ml-5 mt-10">
-            <Link href="/articles">
+            <Link href="/essays">
               <a className={textStyle}>
                 <FontAwesomeIcon icon={faNewspaper} className={symbolStyle} />
-                Articles
+                Essays
               </a>
             </Link>
 
@@ -118,7 +118,7 @@ const MobileHeader = ({
         </ul>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default MobileHeader;
+export default MobileHeader

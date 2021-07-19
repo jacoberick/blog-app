@@ -4,7 +4,7 @@ import fire, { db } from '../config/fire-conf'
 export const Context = React.createContext()
 
 const Store = ({ children }) => {
-  const [articles, setArticles] = useState([])
+  const [essays, setEssays] = useState([])
   const [featured, setFeatured] = useState(null)
   const [art, setArt] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
@@ -19,22 +19,22 @@ const Store = ({ children }) => {
   })
 
   useEffect(() => {
-    db.collection('articles')
+    db.collection('essays')
       .orderBy('createdAt', 'desc')
       .onSnapshot((snap) => {
-        let articleList = snap.docs.map((doc) => ({
+        let essayList = snap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }))
-        setArticles(articleList)
+        setEssays(essayList)
         //select and set featured content
-        let grabFeature = articleList.find((a) => a.featured === true) || null
+        let grabFeature = essayList.find((e) => e.featured === true) || null
         setFeatured(grabFeature)
       })
   }, [])
 
   return (
-    <Context.Provider value={{ articles, featured, loggedIn }}>
+    <Context.Provider value={{ essays, featured, loggedIn }}>
       {children}
     </Context.Provider>
   )

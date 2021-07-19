@@ -1,49 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import DesktopNav from './header-components/DesktopNav';
-import MobileNav from './header-components/MobileNav';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
+import DesktopNav from './header-components/DesktopNav'
+import MobileNav from './header-components/MobileNav'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronDown,
   faBook,
   faEnvelope,
   faVideo,
   faPalette,
-} from '@fortawesome/free-solid-svg-icons';
-import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
-import fire from '../config/fire-conf';
+} from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
+import fire from '../config/fire-conf'
 
-const linkSymbol = 'text-sm mr-2';
+const linkSymbol = 'text-sm mr-2'
 
 const Header = () => {
-  const [screenWidth, setScreenWidth] = useState(undefined);
-  const [notification, setNotification] = useState('');
+  const [screenWidth, setScreenWidth] = useState(undefined)
+  const [notification, setNotification] = useState('')
 
   const handleLogout = () => {
     fire
       .auth()
       .signOut()
       .then(() => {
-        setNotification('Logged out');
+        setNotification('Logged out')
         setTimeout(() => {
-          setNotification('');
-        }, 2000);
-      });
-  };
+          setNotification('')
+        }, 2000)
+      })
+  }
 
   useEffect(() => {
     // handle screen resize function
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
+      setScreenWidth(window.innerWidth)
+    }
 
     // resize event listener
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
     //call handleResize to set initial state
-    handleResize();
+    handleResize()
     //remove on onMount
-    return () => removeEventListener('resize', handleResize);
-  }, []);
+    return () => removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <div
@@ -91,7 +91,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
