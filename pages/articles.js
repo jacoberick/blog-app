@@ -1,5 +1,5 @@
 import Header from '../components/header';
-import Footer from '../components/footer';
+import Footer from '../components/footer/footer';
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

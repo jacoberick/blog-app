@@ -1,0 +1,6 @@
+{
+  "workbench.colorTheme": "Material Theme High Contrast",
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove",
+  "prettier.semi": false
+}

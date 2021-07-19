@@ -3,7 +3,7 @@ import fire from '../../config/fire-conf';
 import Link from 'next/link';
 import Head from 'next/head';
 import Header from '../../components/header';
-import Footer from '../../components/footer';
+import Footer from '../../components/footer/footer';
 import { motion } from 'framer-motion';
 
 const Recommended = () => {
