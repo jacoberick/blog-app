@@ -19,18 +19,23 @@ const Store = ({ children }) => {
   })
 
   useEffect(() => {
-    db.collection('essays')
-      .orderBy('createdAt', 'desc')
-      .onSnapshot((snap) => {
-        let essayList = snap.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        setEssays(essayList)
-        //select and set featured content
-        let grabFeature = essayList.find((e) => e.featured === true) || null
-        setFeatured(grabFeature)
-      })
+    const handleEssayChanges = (snap) => {
+      let essayList = snap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      setEssays(essayList)
+      //select and set featured content
+      let grabFeature = essayList.find((e) => e.featured === true) || null
+      setFeatured(grabFeature)
+    }
+    const query = db.collection('essays').orderBy('createdAt', 'desc')
+    const unsub = query.onSnapshot(handleEssayChanges, (err) =>
+      console.log(err)
+    )
+    return () => {
+      unsub()
+    }
   }, [])
 
   return (

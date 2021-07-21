@@ -5,7 +5,7 @@ import { useContext, useEffect } from 'react'
 import { Context } from '../Store'
 import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
-//"https://firebasestorage.googleapis.com/v0/b/gulag-anthem.appspot.com/o/essay-thumbnails%2FArmy_Day.jpg?alt=media&token=95f2b45e-6ab8-4f7d-9c69-b13c8e0f4a65"
+
 const buttonStyle =
   'w-32 border-2 border-main p-2 rounded hover:text-white transition duration-150 focus:outline-none'
 
