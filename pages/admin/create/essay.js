@@ -18,8 +18,10 @@ const CreateEssay = () => {
 
   const handleCreateSubmit = async (data, e) => {
     e.preventDefault()
+    //sets newEssay to updated values from EssayShell, adds createdAt field equal to date on submit
     let newEssay = { ...essay, createdAt: dayjs().format() }
 
+    //Adds essay thumbnail to Cloud Storage
     if (essay.thumbnail) {
       await storage
         .ref(`/essay-thumbnails/${essay.thumbnail.name}`)
@@ -31,6 +33,7 @@ const CreateEssay = () => {
         })
     }
 
+    //Post newEssay to Firestore
     db.collection('essays')
       .doc(uuidv4())
       .set(newEssay)

@@ -1,10 +1,12 @@
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import { useState } from 'react'
 
+//Mail Chimp input component
 const CustomForm = ({ status, message, onValidated }) => {
   const hoverHighlight = 'hover:text-highlight transition duration-200'
   const [email, setEmail] = useState('')
   const [importStatus, setImportStatus] = useState(status)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     email &&
@@ -12,11 +14,11 @@ const CustomForm = ({ status, message, onValidated }) => {
       onValidated({
         EMAIL: email,
       })
+    setImportStatus(status)
     setEmail('')
     setTimeout(() => {
       setImportStatus(null)
     }, 7500)
-    setImportStatus(status)
   }
 
   return (
@@ -55,6 +57,7 @@ const CustomForm = ({ status, message, onValidated }) => {
   )
 }
 
+//Mail Chimp parent container
 const MailChimpForm = () => {
   const postUrl = `https://gulaganthem.us7.list-manage.com/subscribe/post?u=${process.env.NEXT_PUBLIC_MAILCHIMP_U}&id=${process.env.NEXT_PUBLIC_MAILCHIMP_ID}`
   return (

@@ -66,6 +66,7 @@ const Book = ({
   )
 }
 
+//communicates with Firestore to grab recommended book details based on query, which holds the book entry id
 export const getServerSideProps = async ({ query }) => {
   let content = {}
   await fire

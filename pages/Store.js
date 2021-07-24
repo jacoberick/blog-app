@@ -9,17 +9,26 @@ const Store = ({ children }) => {
   const [art, setArt] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
 
-  //Set logged in state
-  fire.auth().onAuthStateChanged((user) => {
-    if (user) {
-      setLoggedIn(true)
-    } else {
-      setLoggedIn(false)
-    }
-  })
-
+  //Global authentication realtime updates
   useEffect(() => {
-    //Gets stored essays from Firestore
+    const handleAuth = (user) => {
+      if (user) {
+        setLoggedIn(true)
+      } else {
+        setLoggedIn(false)
+      }
+    }
+    const auth = fire.auth()
+    const unsub = auth.onAuthStateChanged(handleAuth, (err) => {
+      console.log(err)
+    })
+    return () => {
+      unsub()
+    }
+  }, [])
+
+  //Brings in Essays as realtime updates
+  useEffect(() => {
     const handleEssayChanges = (snap) => {
       let essayList = snap.docs.map((doc) => ({
         id: doc.id,

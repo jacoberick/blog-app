@@ -14,9 +14,11 @@ const UpdateEssay = () => {
   const [oldThumbnailRef, setOldThumbnailRef] = useState('')
 
   useEffect(() => {
+    //finds article based on query id and sets it to essay variable
     if (essays.length) {
       let essay = essays.find((a) => id === a.id)
       setUpdatedEssay(essay)
+      //extracts thumbnail name from firestore
       let thumbnailName = essay.thumbnail.split('%2F')[1].split('?')[0]
       setOldThumbnailRef(thumbnailName)
     }
@@ -24,9 +26,13 @@ const UpdateEssay = () => {
 
   const handleUpdateSubmit = async (data, e) => {
     e.preventDefault()
+    //sets updatedInfo to updated values from EssayShell, adds updatedAt field equal to date on submit
     let updatedInfo = { ...updatedEssay, updatedAt: dayjs().format() }
+    //if there is a thumbnail and it is a instanceof file
     if (updatedEssay.thumbnail && updatedEssay.thumbnail instanceof File) {
+      //deletes old thumbnail
       storage.ref(`essay-thumbnails/${oldThumbnailRef}`).delete()
+      //post new thumbnail to firestore
       await storage
         .ref(`/essay-thumbnails/${updatedEssay.thumbnail.name}`)
         .put(updatedEssay.thumbnail)
@@ -37,6 +43,7 @@ const UpdateEssay = () => {
         })
     }
 
+    //updates essay in Firestore
     db.collection('essays')
       .doc(updatedEssay.id)
       .set(updatedInfo)

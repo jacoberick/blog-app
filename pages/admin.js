@@ -40,6 +40,7 @@ const Admin = () => {
           </button>
         </div>
         <nav>
+          {/* constructs pathname based on contentType state */}
           <Link
             href={{ pathname: '/admin/create', query: { type: contentType } }}
           >

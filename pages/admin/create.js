@@ -11,6 +11,7 @@ const Create = (props) => {
     <div>
       <Header />
       <main>
+        {/* Conditionally render component based on contentType pulled from query */}
         {contentType === 'essay' && <CreateEssay />}
         {contentType === 'recommended-book' && <CreateBook />}
         {contentType === 'art' && <CreateArt />}

@@ -7,7 +7,6 @@ const EssayShell = ({ operation, essay, setEssay, onSubmit }) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     setValue,
   } = useForm()
   const [initialValue, setInitialValue] = useState(undefined)
@@ -28,6 +27,7 @@ const EssayShell = ({ operation, essay, setEssay, onSubmit }) => {
   })
 
   useEffect(() => {
+    //sets defaultValues in react-hook-form when essay is available
     if (!!essay) {
       setValue('title', essay.title)
       setValue('intro', essay.intro)

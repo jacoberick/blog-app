@@ -54,6 +54,7 @@ const Essay = ({ id, title, content, thumbnail, intro, author, createdAt }) => {
 
         {/* Bottom */}
         <div id="bottom" className="max-w-60rem mx-20 m475:mx-10">
+          {/* If auth display admin controls */}
           {loggedIn && (
             <div id="adminControls" className="mt-10">
               <Link href={`/admin/update/essay/${id}`}>
@@ -83,6 +84,7 @@ const Essay = ({ id, title, content, thumbnail, intro, author, createdAt }) => {
   )
 }
 
+//comunicates with Firestore, grabs essay based on id stored in query, returns info as props
 export const getServerSideProps = async ({ query }) => {
   let content = {}
 

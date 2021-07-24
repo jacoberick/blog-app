@@ -36,7 +36,6 @@ const Header = () => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth)
     }
-
     // resize event listener
     window.addEventListener('resize', handleResize)
     //call handleResize to set initial state
@@ -62,6 +61,7 @@ const Header = () => {
           </Link>
         </div>
         <div>
+          {/* Conditionally render Desktop or Mobile version of nav, dependent on screenWidth */}
           {screenWidth > 900 ? (
             <DesktopNav
               Link={Link}
