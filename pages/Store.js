@@ -9,7 +9,7 @@ const Store = ({ children }) => {
   const [art, setArt] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
 
-  //User log in/out
+  //Set logged in state
   fire.auth().onAuthStateChanged((user) => {
     if (user) {
       setLoggedIn(true)
@@ -19,6 +19,7 @@ const Store = ({ children }) => {
   })
 
   useEffect(() => {
+    //Gets stored essays from Firestore
     const handleEssayChanges = (snap) => {
       let essayList = snap.docs.map((doc) => ({
         id: doc.id,

@@ -11,22 +11,22 @@ const UpdateEssay = () => {
   const { id } = router.query
   const { essays } = useContext(Context)
   const [updatedEssay, setUpdatedEssay] = useState(null)
-  const [thumbnailRef, setThumbnailRef] = useState('')
+  const [oldThumbnailRef, setOldThumbnailRef] = useState('')
 
   useEffect(() => {
     if (essays.length) {
       let essay = essays.find((a) => id === a.id)
       setUpdatedEssay(essay)
       let thumbnailName = essay.thumbnail.split('%2F')[1].split('?')[0]
-      setThumbnailRef(thumbnailName)
+      setOldThumbnailRef(thumbnailName)
     }
   }, [essays])
 
-  const handleUpdateSubmit = async (e) => {
+  const handleUpdateSubmit = async (data, e) => {
     e.preventDefault()
     let updatedInfo = { ...updatedEssay, updatedAt: dayjs().format() }
     if (updatedEssay.thumbnail && updatedEssay.thumbnail instanceof File) {
-      storage.ref(`essay-thumbnails/${thumbnailRef}`).delete()
+      storage.ref(`essay-thumbnails/${oldThumbnailRef}`).delete()
       await storage
         .ref(`/essay-thumbnails/${updatedEssay.thumbnail.name}`)
         .put(updatedEssay.thumbnail)
@@ -57,7 +57,7 @@ const UpdateEssay = () => {
         setEssay={setUpdatedEssay}
         essay={updatedEssay}
         operation="Update"
-        handleSubmit={handleUpdateSubmit}
+        onSubmit={handleUpdateSubmit}
       />
     </div>
   )

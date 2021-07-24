@@ -32,6 +32,7 @@ module.exports = {
       boxShadow: {
         dropDown: '2px 2px 5px rgba(46, 64, 87, 0.81)',
         burgerMenu: '-5px 0 5px #0e3036',
+        form: '0 0 3px #dc2626',
       },
       height: {
         header: '4.25rem',
@@ -47,6 +48,9 @@ module.exports = {
         '60rem': '60rem',
         '100rem': '100rem',
       },
+      zIndex: {
+        '-1': '-1',
+      },
     },
   },
   variants: {
@@ -57,4 +61,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}

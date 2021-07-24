@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import Header from '../components/header';
-import Home from '../components/home';
-import Footer from '../components/footer/footer';
+import Head from 'next/head'
+import Header from '../components/header'
+import Home from '../components/home'
+import Footer from '../components/footer/footer'
 
 const Index = () => {
   return (
@@ -9,15 +9,11 @@ const Index = () => {
       <Head>
         <title>Gulag Anthem | Home</title>
       </Head>
-      <Header
-      // notification={notification}
-      // loggedIn={loggedIn}
-      // handleLogout={handleLogout}
-      />
+      <Header />
       <Home />
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

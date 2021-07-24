@@ -16,7 +16,7 @@ const CreateEssay = () => {
     content: '',
   })
 
-  const handleCreateSubmit = async (e) => {
+  const handleCreateSubmit = async (data, e) => {
     e.preventDefault()
     let newEssay = { ...essay, createdAt: dayjs().format() }
 
@@ -49,7 +49,7 @@ const CreateEssay = () => {
       operation="Create"
       essay={essay}
       setEssay={setEssay}
-      handleSubmit={handleCreateSubmit}
+      onSubmit={handleCreateSubmit}
     />
   )
 }

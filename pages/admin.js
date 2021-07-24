@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Header from '../components/header.js'
+import Footer from '../components/footer/footer'
 
 const Admin = () => {
   const [contentType, setContentType] = useState('')
@@ -9,7 +10,7 @@ const Admin = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="p-2 flex flex-col items-center justify-center">
+      <main className="p-2 flex flex-col items-center my-auto">
         <h1 className="font-header text-4xl">Hello, Jacob.</h1>
         <h2 className="my-2 text-lg">What are you creating today?</h2>
         <div>
@@ -51,6 +52,7 @@ const Admin = () => {
           </Link>
         </nav>
       </main>
+      <Footer />
     </div>
   )
 }
