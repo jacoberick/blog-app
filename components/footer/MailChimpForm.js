@@ -1,5 +1,5 @@
 import MailchimpSubscribe from 'react-mailchimp-subscribe'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 //Mail Chimp input component
 const CustomForm = ({ status, message, onValidated }) => {
@@ -14,12 +14,15 @@ const CustomForm = ({ status, message, onValidated }) => {
       onValidated({
         EMAIL: email,
       })
-    setImportStatus(status)
     setEmail('')
     setTimeout(() => {
       setImportStatus(null)
-    }, 7500)
+    }, 5000)
   }
+
+  useEffect(() => {
+    setImportStatus(status)
+  }, [status])
 
   return (
     <div>
