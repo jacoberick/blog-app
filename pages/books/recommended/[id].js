@@ -16,7 +16,7 @@ const Book = ({
     'w-1/3 flex justify-center rounded-md p-4 items-start mx-14 m1200:w-1/2'
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
       <div className="p-4">
         <Head>
