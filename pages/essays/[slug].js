@@ -9,16 +9,7 @@ import dayjs from 'dayjs'
 const buttonStyle =
   'w-32 border-2 border-main p-2 rounded hover:text-white transition duration-150 focus:outline-none'
 
-const Essay = ({
-  id,
-  slug,
-  title,
-  content,
-  thumbnail,
-  intro,
-  author,
-  createdAt,
-}) => {
+const Essay = ({ id, title, content, thumbnail, intro, author, createdAt }) => {
   let { loggedIn } = useContext(Context)
   const router = useRouter()
   let thumbnailName = thumbnail.split('%2F')[1].split('?')[0]
@@ -94,32 +85,55 @@ const Essay = ({
 }
 
 export const getStaticPaths = async () => {
-  const essays = await db
+  let essays = []
+  await db
     .collection('essays')
     .orderBy('createdAt', 'desc')
     .get()
-  console.log(essays)
-  // const paths = essays.map((essay) => ({
-  //   params: {
-  //     slug: essay.title.toLowerCase().replaceAll(' ', '-'),
-  //   },
-  // }))
-  // return { paths, fallback: false }
+    .then((snap) => {
+      essays = snap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+    })
+
+  const paths = essays.map((essay) => {
+    const slug = essay.title.toLowerCase().replace(/ /g, '-')
+    return {
+      params: {
+        slug,
+      },
+    }
+  })
+  return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ query }) => {
-  console.log(query)
-  // return {
-  //   props: {
-  //     id: query.id,
-  //     slug: content.title.toLowerCase().replaceAll(' ', '-'),
-  //     title: content.title,
-  //     intro: content.intro,
-  //     author: content.author,
-  //     thumbnail: content.thumbnail,
-  //     content: content.content,
-  //     createdAt: content.createdAt,
-  //   },
-  // }
+export const getStaticProps = async ({ params }) => {
+  let essays = []
+  const deslug = params.slug.split('-').join(' ')
+
+  await db
+    .collection('essays')
+    .orderBy('createdAt', 'desc')
+    .get()
+    .then((snap) => {
+      essays = snap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+    })
+
+  const content = essays.filter((e) => e.title.toLowerCase() === deslug)[0]
+  return {
+    props: {
+      id: content.id,
+      title: content.title,
+      intro: content.intro,
+      author: content.author,
+      thumbnail: content.thumbnail,
+      content: content.content,
+      createdAt: content.createdAt,
+    },
+  }
 }
 export default Essay

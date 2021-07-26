@@ -88,9 +88,7 @@ const HomepageEssays = () => {
                 key={idx}
               >
                 <Link
-                  href={`essays/${e.title
-                    .toLowerCase()
-                    .replaceAll(' ', '-')}?id=${e.id}`}
+                  href={`essays/${e.title.toLowerCase().replaceAll(' ', '-')}`}
                 >
                   <div className="flex items-center m999:flex-col my-4 m999:my-0">
                     <img
