@@ -37,7 +37,11 @@ const HomepageEssays = () => {
                   <span className="text-red-600">READ </span>FEATURED
                 </h2>
               </div>
-              <Link href={`essays/${featured.id}`}>
+              <Link
+                href={`essays/${featured.title
+                  .toLowerCase()
+                  .replaceAll(' ', '-')}`}
+              >
                 <motion.img
                   whileHover={{ scale: 1.03 }}
                   src={featured.thumbnail}
@@ -83,7 +87,11 @@ const HomepageEssays = () => {
                 className="cursor-pointer my-4"
                 key={idx}
               >
-                <Link href={`essays/${e.id}`}>
+                <Link
+                  href={`essays/${e.title
+                    .toLowerCase()
+                    .replaceAll(' ', '-')}?id=${e.id}`}
+                >
                   <div className="flex items-center m999:flex-col my-4 m999:my-0">
                     <img
                       src={e.thumbnail}

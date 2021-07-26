@@ -9,7 +9,16 @@ import dayjs from 'dayjs'
 const buttonStyle =
   'w-32 border-2 border-main p-2 rounded hover:text-white transition duration-150 focus:outline-none'
 
-const Essay = ({ id, title, content, thumbnail, intro, author, createdAt }) => {
+const Essay = ({
+  id,
+  slug,
+  title,
+  content,
+  thumbnail,
+  intro,
+  author,
+  createdAt,
+}) => {
   let { loggedIn } = useContext(Context)
   const router = useRouter()
   let thumbnailName = thumbnail.split('%2F')[1].split('?')[0]
@@ -84,29 +93,33 @@ const Essay = ({ id, title, content, thumbnail, intro, author, createdAt }) => {
   )
 }
 
-//comunicates with Firestore, grabs essay based on id stored in query, returns info as props
-export const getServerSideProps = async ({ query }) => {
-  let content = {}
-
-  await fire
-    .firestore()
+export const getStaticPaths = async () => {
+  const essays = await db
     .collection('essays')
-    .doc(query.id)
+    .orderBy('createdAt', 'desc')
     .get()
-    .then((result) => {
-      content = result.data()
-    })
+  console.log(essays)
+  // const paths = essays.map((essay) => ({
+  //   params: {
+  //     slug: essay.title.toLowerCase().replaceAll(' ', '-'),
+  //   },
+  // }))
+  // return { paths, fallback: false }
+}
 
-  return {
-    props: {
-      id: query.id,
-      title: content.title,
-      intro: content.intro,
-      author: content.author,
-      thumbnail: content.thumbnail,
-      content: content.content,
-      createdAt: content.createdAt,
-    },
-  }
+export const getStaticProps = async ({ query }) => {
+  console.log(query)
+  // return {
+  //   props: {
+  //     id: query.id,
+  //     slug: content.title.toLowerCase().replaceAll(' ', '-'),
+  //     title: content.title,
+  //     intro: content.intro,
+  //     author: content.author,
+  //     thumbnail: content.thumbnail,
+  //     content: content.content,
+  //     createdAt: content.createdAt,
+  //   },
+  // }
 }
 export default Essay

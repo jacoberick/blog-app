@@ -25,7 +25,11 @@ const Essays = () => {
                 className="cursor-pointer mb-10"
                 key={idx}
               >
-                <Link href={`essays/${e.id}`}>
+                <Link
+                  href={`essays/${e.title
+                    .toLowerCase()
+                    .replaceAll(' ', '-')}`}
+                >
                   <div className="flex flex-col items-center flex-wrap mx-8">
                     <img
                       src={e.thumbnail}
