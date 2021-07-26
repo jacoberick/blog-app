@@ -49,7 +49,9 @@ const UpdateEssay = () => {
       .set(updatedInfo)
       .then(() => {
         alert('Essay saved!')
-        router.push(`/essays/${id}`)
+        router.push(
+          `/essays/${updatedEssay.title.toLowerCase().replaceAll(' ', '-')}`
+        )
       })
       .catch((error) => {
         alert('Sorry, there was an error! Check the console.')
