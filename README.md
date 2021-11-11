@@ -1,5 +1,5 @@
-## Gulag Anthem Blog App
-GA is a blog app that uses Firebase Firestore as a backend and Next.js for the front end. GA offers full CRUD operations for essays when a user is authenticated.
+## Blog App
+This project is a blog app that uses Firebase Firestore as a backend and Next.js for the front end. GA offers full CRUD operations for essays when a user is authenticated.
 
 ## Live 
 
