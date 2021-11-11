@@ -2,6 +2,7 @@
 This project uses Firebase Firestore as a backend and Next.js for the front end. It offers full CRUD operations for essays when a user is authenticated.
 
 ## Live 
+https://blog-app-three-eta.vercel.app/
 
 ## Installation 
 
